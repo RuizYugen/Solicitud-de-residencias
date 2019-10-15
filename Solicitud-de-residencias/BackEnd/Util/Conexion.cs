@@ -15,8 +15,7 @@ namespace BackEnd.Util
         static public bool Conectar()
         {
             String parametrosConexion = "Server=127.0.0.1;Database=solicitudResidencias;Uid=root;Pwd=root;Port=3306;";
-
-            // String parametrosConexion = "Server=mysql5014.site4now.net;Database=db_a4ac5e_ptmbd;Uid=a4ac5e_ptmbd;Pwd=anjoluande7.s;";
+            
             conexion = new MySqlConnection(parametrosConexion);
             try
             {
