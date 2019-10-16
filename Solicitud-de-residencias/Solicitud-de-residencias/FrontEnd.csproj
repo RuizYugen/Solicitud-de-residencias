@@ -99,6 +99,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Vistas\CSS\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,6 +112,10 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Vistas\ControlDeAcceso.aspx" />
+    <Content Include="Vistas\CSS\bootstrap.min.css" />
+    <Content Include="Vistas\CSS\Solicitud.css" />
+    <Content Include="Vistas\FrmSolicitud.aspx" />
+    <Content Include="Vistas\IMG\EncabezadoItsur.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +129,13 @@
     </Compile>
     <Compile Include="Vistas\ControlDeAcceso.aspx.designer.cs">
       <DependentUpon>ControlDeAcceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmSolicitud.aspx.cs">
+      <DependentUpon>FrmSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmSolicitud.aspx.designer.cs">
+      <DependentUpon>FrmSolicitud.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
