@@ -7,6 +7,7 @@ using BackEnd.Modelos;
 using System.Data;
 using MySql.Data.MySqlClient;
 using BackEnd.Util;
+using System.Security.Cryptography;
 namespace BackEnd.DAOS
 {
     public class UsuarioDAO
@@ -31,6 +32,9 @@ namespace BackEnd.DAOS
             }
             return lista;
         }
+
+
+
 
         public Usuario getUsuarioByUsuario(string usuario)
         {
@@ -105,5 +109,54 @@ namespace BackEnd.DAOS
                 return false;
             }
         }
+
+
+        public Usuario esUsuario(string usuario, string contrasenia)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM usuario where usuario = @user and contrasena = @password;");
+
+                cmd.Parameters.AddWithValue("@user", usuario);
+                cmd.Parameters.AddWithValue("@password", contrasenia);
+
+                Usuario user = null;
+                DataTable dt = con.ejecutarConsulta(cmd);
+
+                if (dt != null)
+                {
+
+                    user = new Usuario((dt.Rows[0])[0].ToString(), (dt.Rows[0])[1].ToString(), (dt.Rows[0])[2].ToString());
+                }
+
+                return user;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+
+
+        }
+
+
+        public string getSHA256(string str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+
     }
+
 }
