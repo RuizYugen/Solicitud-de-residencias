@@ -99,6 +99,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Servicios\WSControlDeAcceso.asmx" />
     <Content Include="Vistas\CSS\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -123,6 +124,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\WSControlDeAcceso.asmx.cs">
+      <DependentUpon>WSControlDeAcceso.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vistas\ControlDeAcceso.aspx.cs">
       <DependentUpon>ControlDeAcceso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,7 +146,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Servicios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackEnd\BackEnd.csproj">
+      <Project>{B8A3C1CF-D005-477A-9D0D-070E4160801D}</Project>
+      <Name>BackEnd</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
