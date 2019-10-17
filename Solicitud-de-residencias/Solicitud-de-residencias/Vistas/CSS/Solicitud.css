@@ -1,2 +1,44 @@
 ﻿body {
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.encabezado{
+    font-weight:bold;
+    text-align:center;
+    font-size:16px;
+}
+.textoIzquierda{
+    width:40%;
+}
+.texto25{
+    width:20%;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto15{
+    width:15%;
+    font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.textoDerecha{
+   padding-left:20%;
+   padding-right:0%;
+   width:inherit;
+}
+
+.etiquetaText{
+    display:inline-flex;
+    width:90%;
+}
+#coDatos{
+    display:inline-flex;
+    width:100%;
+   
+}
+#fecha{
+    float:right;
+    padding-right:10%;
 }
