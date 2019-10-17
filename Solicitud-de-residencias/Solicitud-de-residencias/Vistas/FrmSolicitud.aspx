@@ -14,7 +14,7 @@
     <img class="img-responsive" src="/Vistas/IMG/EncabezadoItsur.png" ;alter="Encabezado"/>
    
     <div class="container-fluid">
-        <p class="encabezado">INSTITUTO TECNOLOGICO SUPERIOR DEL SUR DE GUANAJUATO</p>
+        <p  class="encabezado">INSTITUTO TECNOLOGICO SUPERIOR DEL SUR DE GUANAJUATO</p>
     <p class="encabezado">DIVISION DE ESTUDIOS PROFESIONALES</p>
     <p class="encabezado">RESIDENCIAS PROFESIONALES</p>
         <p class="encabezado">SOLICITUD DE RESIDENCIAS PROFESIONALES</p>
