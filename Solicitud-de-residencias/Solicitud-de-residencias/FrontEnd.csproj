@@ -100,6 +100,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Servicios\WSControlDeAcceso.asmx" />
+    <Content Include="Vistas\CatalogoUsuarios.aspx" />
     <Content Include="Vistas\CSS\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -127,6 +128,13 @@
     <Compile Include="Servicios\WSControlDeAcceso.asmx.cs">
       <DependentUpon>WSControlDeAcceso.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vistas\CatalogoUsuarios.aspx.cs">
+      <DependentUpon>CatalogoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\CatalogoUsuarios.aspx.designer.cs">
+      <DependentUpon>CatalogoUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ControlDeAcceso.aspx.cs">
       <DependentUpon>ControlDeAcceso.aspx</DependentUpon>
