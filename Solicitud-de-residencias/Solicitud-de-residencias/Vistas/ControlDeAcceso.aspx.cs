@@ -13,5 +13,11 @@ namespace Solicitud_de_residencias.Vistas
         {
 
         }
+
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
