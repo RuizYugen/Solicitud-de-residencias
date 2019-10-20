@@ -50,42 +50,37 @@ namespace BackEnd.DAOS
             return e;
         }
 
-        public bool delete(string usuario)
+        public void delete(Usuario e)
         {
             Conexion conexion = new Conexion();
 
 
-            try
-            {
-                String SQL = "DELETE FROM usuario WHERE" + " usuario like '" + usuario + "';";
-                MySqlCommand sqlcom = new MySqlCommand();
-                sqlcom.CommandText = SQL;
-                conexion.EjecutaSQLComando(sqlcom);
-                return true;
-            }
-            catch (Exception)
-            {
 
-                return false;
-            }
+            string SQL = "delete from usuario where" + " usuario = '" + e.usuario + "';";
+            MySqlCommand sqlcom = new MySqlCommand();
+            sqlcom.CommandText = SQL;
+            conexion.EjecutaSQLComando(sqlcom);
+            //return true;
+
+
         }
 
-        public bool update(Usuario e)
+        public void update(Usuario e)
         {
             Conexion conexion = new Conexion();
 
-            String SQL;
+            string SQL;
             try
             {
-                SQL = "UPDATE usuario SET" + " usuario='" + e.usuario + "',contrasena='" + e.contrasena + "',rol='" + e.rol + " WHERE usuario like '" + e.usuario + "';";
+                SQL = "UPDATE usuario SET" + " usuario='" + e.usuario + "',contrasena='" + e.contrasena + "',rol='" + e.rol + "' WHERE usuario like '" + e.usuario + "';";
                 MySqlCommand sqlcom = new MySqlCommand();
                 sqlcom.CommandText = SQL;
                 conexion.EjecutaSQLComando(sqlcom);
-                return true;
+                //return true;
             }
             catch (Exception)
             {
-                return false;
+                //return false;
             }
         }
 
