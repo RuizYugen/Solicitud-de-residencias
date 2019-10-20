@@ -16,7 +16,7 @@ namespace BackEnd.Util
         {
             //Revisar: https://www.connectionstrings.com/mysql/
 
-            String servidor = "127.0.0.1";
+            String servidor = "localhost";
             String puerto = "3306";
             String usuario = "root";
             String password = "root";
