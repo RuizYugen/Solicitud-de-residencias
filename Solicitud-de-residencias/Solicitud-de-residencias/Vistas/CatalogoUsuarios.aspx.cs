@@ -46,5 +46,23 @@ namespace Solicitud_de_residencias.Vistas
         {
             Response.Redirect("AgregarUsuario.aspx");
         }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType==DataControlRowType.DataRow)
+            {
+                foreach (DataControlFieldCell cell in e.Row.Cells)
+                {
+                    foreach (Control control in cell.Controls)
+                    {
+                        LinkButton btn = control as LinkButton;
+                        if (btn!=null&&btn.CommandName.Equals("Delete"))
+                        {
+                            btn.OnClientClick = "return confirm('¿Eliminar usuario?');";
+                        }
+                    }
+                }
+            }
+        }
     }
 }
