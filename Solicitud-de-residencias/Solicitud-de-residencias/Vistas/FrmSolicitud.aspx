@@ -225,7 +225,7 @@
         <br />
         <div class="form-group, etiquetaText">
             <label for="nombreProyecto" class="texto10">Domicilio: </label>
-            <input class="form-control"  id="Text2" type="text" runat="server" />
+            <input class="form-control"  id="domicilioAlu" type="text" runat="server" />
         </div>
         <br />
         <br />
@@ -238,12 +238,12 @@
              </div>
              <div class="seguroNum">
                  <label class="texto25">Para Seguridad Social acudir:   </label>
-            <label  class="radio-inline"><input type="radio" name="opcionProyect" checked="checked"/>IMSS</label>
+            <label  class="radio-inline"><input type="radio" name="opcionProyect" id="rbImss" runat="server"/>IMSS</label>
        
         
-            <label class="radio-inline"><input type="radio" name="opcionProyect"/>ISSSTE</label>
+            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbIssste" runat="server"/>ISSSTE</label>
         
-            <label class="radio-inline"><input type="radio" name="opcionProyect"/>Otros</label>
+            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbOtrosS" runat="server"/>Otros</label>
                  <br />
                   <div class="form-group, etiquetaText">
                     <label for="email" class="texto25">No. : </label>

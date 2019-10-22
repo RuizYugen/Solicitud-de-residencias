@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BackEnd.DAOS;
+using BackEnd.Modelos;
 
 namespace Solicitud_de_residencias.Vistas
 {
@@ -11,7 +13,6 @@ namespace Solicitud_de_residencias.Vistas
     {
 
         int idSolicitud = 0;
-        String noControl = "";
         String lugar = "";
         String fechaStr = "";
         String coordinadorCarrera = "";
@@ -36,19 +37,128 @@ namespace Solicitud_de_residencias.Vistas
         String puestoAsesorExterno = "";
         String nombreAcuerdoTrabajo = "";
         String puestoAcuerdoTrabajo = "";
+        //Datos alumno en la solicitud
         String nombreResidente = "";
+        String noControlR = "";
+        String carreraStr = "";
+        String domicilioStr = "";
+        String emailStr = "";
+        String ciudad = "";
+        String seguro = "";
+        String nSeguro = "";
+        String telefonoStr = "";
+        // Datos del alumno
+        static String usuario = "eli";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
+            llenarDatos();
 
+        }
+        public void llenarDatos()
+        {
+            Alumno a = obtenerAlumno();
+            nombreResidente = a.nombre + " " + a.apellidoPaterno + " " + a.apellidoMaterno;
+            noControlR = a.noControl;
+            carreraStr = a.carrera;
+            domicilioStr = a.domicilio;
+            emailStr = a.email;
+            ciudad = a.ciudad;
+            seguro = a.servicioSalud;
+            nSeguro = a.numeroServicioSalud;
+            telefonoStr = a.telefono;
+
+            this.nombreAlumno.Value = nombreResidente;
+            this.noControl.Value = noControlR;
+            this.carrera.Value = carreraStr;
+            this.domicilioAlu.Value = domicilioStr;
+            this.email.Value = emailStr;
+            this.ciudadAlu.Value = ciudad;
+            this.noSeguro.Value = nSeguro;
+            this.teleAlu.Value = telefonoStr;
+
+            if (a.servicioSalud.Equals("IMSS"))
+            {
+                this.rbImss.Checked = true;
+            }
+            if (a.servicioSalud.Equals("ISSSTE"))
+            {
+                this.rbIssste.Checked = true;
+            }
+            if (a.servicioSalud.Equals("Otros"))
+            {
+                this.rbOtrosS.Checked = true;
+            }
+
+        }
+        public void guardarSolicitud()
+        {
+            DetallesSolicitud ds = new DetallesSolicitud();
+            DetallesSolicitudDAO dao = new DetallesSolicitudDAO();
+            List<DetallesSolicitud> lista = dao.getAll();
+            int lastId = 0;
+            if (lista.Count > 0)
+            {
+                lastId = lista.ElementAt(lista.Count - 1).idSolicitud;
+            }
+            else
+            {
+                lastId = 0;
+            }
+            
+            ds.idSolicitud = lastId+1;
+            ds.noControl = noControlR;
+            ds.lugar = lugar;
+            ds.fecha = DateTime.Parse(fechaStr);
+            ds.coordinadorCarrera = coordinadorCarrera;
+            ds.nombreProyecto = nombreProyectoS;
+            ds.opcionElegida = opcionElegida;
+            ds.periodo = periodoStr;
+            ds.numeroResidentes = numeroResidentes;
+            ds.nombreEmpresa = nombreEmpresaStr;
+            ds.giro = giro;
+            ds.sector = sector;
+            ds.rfc = rfc;
+            ds.domicilioEmpresa = domicilioEmpresa;
+            ds.coloniaEmpresa = coloniaEmpresa;
+            ds.cpEmpresa = cpEmpresa;
+            ds.faxEmpresa = faxEmpresa;
+            ds.ciudadEmpresa = ciudadEmpresa;
+            ds.telefonoEmpresa = telefonoEmpresa;
+            ds.misionEmpresa = misionEmpresa;
+            ds.nombreTitularEmpresa = nombreTitularEmpresa;
+            ds.puestoTitularEmpresa = puestoTitularEmpresa;
+            ds.nombreAsesorExterno = nombreAsesorExterno;
+            ds.puestoAsesorExterno = puestoAsesorExterno;
+            ds.nombreAcuerdoTrabajo = nombreAcuerdoTrabajo;
+            ds.puestoAcuerdoTrabajo = puestoAcuerdoTrabajo;
+            ds.nombreResidente = nombreResidente;
+
+            dao.insert(ds);
+
+            MsgBox(dao.getAll().Count + "", this.Page, this);
+
+            //  ds.fecha = fechaStr;
+
+            //  MsgBox(ds.fecha.Year.ToString(), this.Page, this);
+          //  ds.giro = giro;
+          
+
+        }
+        public Alumno obtenerAlumno()
+        {
+            Alumno a=new Alumno();
+            AlumnoDAO dao= new AlumnoDAO();
+            a = dao.getAlumnoByUsuario(usuario);
+            return a;
+
+        }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
 
             lugar = "Uriangato Gto.";
             fechaStr = fechaCale2.Text.ToString();
-            coordinadorCarrera = txtCoordinador.InnerText;
+            coordinadorCarrera = txtCoordinador.InnerText;//ObtenerCooordinadorCarrera
             nombreProyectoS = txtnombreProyecto.Value.ToString();
             bool banco = this.rbBanco.Checked;
             bool propia = this.rbpropia.Checked;
@@ -115,10 +225,11 @@ namespace Solicitud_de_residencias.Vistas
             puestoAcuerdoTrabajo = this.puestoAcue.Value;
             String datos = lugar + " " + fechaStr + " " + coordinadorCarrera + " " + nombreProyectoS + " " + opcionElegida +
                 " " + periodoStr + " " + numeroResidentes + " " + nombreEmpresaStr + " " + giro + " " + sector +
-                " " + rfc + " " + domicilioEmpresa + " " + coloniaEmpresa + " " + cpEmpresa + " " + faxEmpresa + " " + ciudadEmpresa + " "+
-               telefonoEmpresa+" "+misionEmpresa+" "+nombreTitularEmpresa+" "+puestoTitularEmpresa+" "+
-               nombreAsesorExterno+" "+puestoAsesorExterno+" "+nombreAcuerdoTrabajo+" "+puestoAcuerdoTrabajo;
-            MsgBox(datos, this.Page, this);
+                " " + rfc + " " + domicilioEmpresa + " " + coloniaEmpresa + " " + cpEmpresa + " " + faxEmpresa + " " + ciudadEmpresa + " " +
+               telefonoEmpresa + " " + misionEmpresa + " " + nombreTitularEmpresa + " " + puestoTitularEmpresa + " " +
+               nombreAsesorExterno + " " + puestoAsesorExterno + " " + nombreAcuerdoTrabajo + " " + puestoAcuerdoTrabajo;
+            // MsgBox(datos, this.Page, this);
+            guardarSolicitud();
         }
         public void MsgBox(String ex, Page pg, Object obj)
         {

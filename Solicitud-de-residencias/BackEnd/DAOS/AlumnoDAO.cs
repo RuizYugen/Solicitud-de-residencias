@@ -63,7 +63,28 @@ namespace BackEnd.DAOS
             e.numeroServicioSalud = (string)r.ItemArray[11];
             return e;
         }
-
+        public Alumno getAlumnoByUsuario(string usuario)
+        {
+            Alumno e;
+            Conexion conexion = new Conexion();
+            DataSet datos = conexion.LLenaComboGrid("SELECT * FROM alumno WHERE usuario like '" + usuario + "';");
+            DataTable dt = datos.Tables[0];
+            e = new Alumno();
+            DataRow r = dt.Rows[0];
+            e.noControl = (string)r.ItemArray[0];
+            e.usuario = (string)r.ItemArray[1];
+            e.nombre = (string)r.ItemArray[2];
+            e.apellidoPaterno = (string)r.ItemArray[3];
+            e.apellidoMaterno = (string)r.ItemArray[4];
+            e.carrera = (string)r.ItemArray[5];
+            e.email = (string)r.ItemArray[6];
+            e.telefono = (string)r.ItemArray[7];
+            e.domicilio = (string)r.ItemArray[8];
+            e.ciudad = (string)r.ItemArray[9];
+            e.servicioSalud = (string)r.ItemArray[10];
+            e.numeroServicioSalud = (string)r.ItemArray[11];
+            return e;
+        }
         public bool delete(string noControl)
         {
             Conexion conexion = new Conexion();
