@@ -5,27 +5,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>       
+    <title>Agregar Usuario</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link href="CSS/cssAgregarUsuario.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
+    <div class="contenedor">
+        <div class="form-group">
+        <asp:Label ID="Label1" runat="server" Text="Usuario" CssClass="et"></asp:Label>
         <br />
-        <input id="txtUsuario" type="text" runat="server"/><br />
+        <input id="txtUsuario" type="text" runat="server" class="form-control" required="required"/><br />
         <br />
-        <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label>
+        </div>
+        <div class="form-group">
+        <asp:Label ID="Label2" runat="server" Text="Contraseña" CssClass="et"></asp:Label>
         <br />
-        <input id="txtContrasena" type="text" runat="server"/><br />
+        <input id="txtContrasena" type="text" runat="server" class="form-control" required="required"/><br />
         <br />
-        <asp:Label ID="Label3" runat="server" Text="Rol"></asp:Label>
+        </div>
+        <div class="form-group">
+        <asp:Label ID="Label3" runat="server" Text="Rol" CssClass="et"></asp:Label>
         <br />
-        <input id="txtRol" type="text" runat="server"/><br />
+        <input id="txtRol" type="text" runat="server" class="form-control" placeholder="Alumno/Administrador" required="required"/><br />
         <br />
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aceptar" />
-    
+        </div>    
+        <div style="text-align:center;">
+            <div style="display:inline-block;">
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aceptar" CssClass="btn btn-primary btn-block"/>
+                </div>
+        </div>
     </div>
     </form>
+    <script>
+        bootstrapValidate('#txtUsuario','Ingrese un usuario');
+
+    </script>
 </body>
 </html>
