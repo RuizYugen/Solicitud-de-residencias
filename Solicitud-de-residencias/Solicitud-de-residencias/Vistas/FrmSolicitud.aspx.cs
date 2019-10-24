@@ -50,9 +50,13 @@ namespace Solicitud_de_residencias.Vistas
         // Datos del alumno
         static String usuario = "eli";
 
+        //Si ya existe la versión de una solicitud
+        Boolean modificar = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             llenarDatos();
+            cargarSolicitud();
 
         }
         public void llenarDatos()
@@ -88,6 +92,79 @@ namespace Solicitud_de_residencias.Vistas
             if (a.servicioSalud.Equals("Otros"))
             {
                 this.rbOtrosS.Checked = true;
+            }
+
+        }
+        public void cargarSolicitud()
+        {
+            DetallesSolicitud ds = new DetallesSolicitud();
+            DetallesSolicitudDAO dao = new DetallesSolicitudDAO();
+            ds = dao.getDetallesSolicitudByNoControl(noControlR);
+            if (ds.noControl != null)
+            {
+                modificar = true;
+                fechaCale2.Text = ds.fecha.ToString("yyyy-MM-dd");
+                txtCoordinador.InnerText = ds.coordinadorCarrera;
+                txtnombreProyecto.Value = ds.nombreProyecto;
+                if (ds.opcionElegida.Equals("Banco de proyectos"))
+                {
+                    bool b = true;
+                    
+                    
+                    this.rbBanco.Checked = b;
+                }
+                if (ds.opcionElegida.Equals("Propuesta propia"))
+                {
+                    this.rbpropia.Checked = true;
+                   
+                }
+                if (ds.opcionElegida.Equals("Trabajador"))
+                {
+                    this.rbtrabajador.Checked = true;
+                }
+                this.periodo.Value = ds.periodo;
+                this.numResidentes.Value = ds.numeroResidentes + "";
+                this.nombreEmpresa.Value = ds.nombreEmpresa;
+                if (ds.giro.Equals("Industrial"))
+                {
+                    this.rbIndus.Checked = true;
+                    
+                }
+                if (ds.giro.Equals("Servicios"))
+                {
+                    this.rbServ.Checked = true;
+                }
+                if (ds.giro.Equals("Otro"))
+                {
+                    this.rbotroG.Checked = true;
+                }
+                if (ds.sector.Equals( "Público"))
+                {
+                    this.rbPublico.Checked = true;
+                    
+                }
+                if (ds.sector.Equals("Privado"))
+                {
+                    this.rbPrivado.Checked = true;
+                }
+                this.txtRfc.Value = ds.rfc;
+                this.domicilioEmp.Value = ds.domicilioEmpresa;
+                this.colonia.Value = ds.coloniaEmpresa;
+                this.cp.Value = ds.cpEmpresa;
+                this.telefonoEmp.Value = ds.telefonoEmpresa;
+                this.fax.Value = ds.faxEmpresa;
+                this.ciudadEmp.Value = ds.ciudadEmpresa;
+                this.mision.Value = ds.misionEmpresa;
+                this.titular.Value = ds.nombreTitularEmpresa;
+                this.puestoTit.Value = ds.puestoTitularEmpresa;
+                this.asesor.Value = ds.nombreAsesorExterno;
+                this.puestoAse.Value = ds.puestoAsesorExterno;
+                this.acuerdo.Value = ds.nombreAcuerdoTrabajo;
+                this.puestoAcue.Value = ds.puestoAcuerdoTrabajo;
+            }
+            else
+            {
+               
             }
 
         }
