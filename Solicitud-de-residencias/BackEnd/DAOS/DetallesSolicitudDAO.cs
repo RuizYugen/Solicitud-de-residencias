@@ -101,34 +101,42 @@ namespace BackEnd.DAOS
             DataSet datos = conexion.LLenaComboGrid("SELECT * FROM detallesSolicitud WHERE noControl like  '" + noControl + "';");
             DataTable dt = datos.Tables[0];
             e = new DetallesSolicitud();
-            DataRow r = dt.Rows[0];
-            e.idSolicitud = (int)r.ItemArray[0];
-            e.noControl = (string)r.ItemArray[1];
-            e.lugar = (string)r.ItemArray[2];
-            e.fecha = (DateTime)r.ItemArray[3];
-            e.coordinadorCarrera = (string)r.ItemArray[4];
-            e.nombreProyecto = (string)r.ItemArray[5];
-            e.opcionElegida = (string)r.ItemArray[6];
-            e.periodo = (string)r.ItemArray[7];
-            e.numeroResidentes = (int)r.ItemArray[8];
-            e.nombreEmpresa = (string)r.ItemArray[9];
-            e.giro = (string)r.ItemArray[10];
-            e.sector = (string)r.ItemArray[11];
-            e.rfc = (string)r.ItemArray[12];
-            e.domicilioEmpresa = (string)r.ItemArray[13];
-            e.coloniaEmpresa = (string)r.ItemArray[14];
-            e.cpEmpresa = (string)r.ItemArray[15];
-            e.faxEmpresa = (string)r.ItemArray[16];
-            e.ciudadEmpresa = (string)r.ItemArray[17];
-            e.telefonoEmpresa = (string)r.ItemArray[18];
-            e.misionEmpresa = (string)r.ItemArray[19];
-            e.nombreTitularEmpresa = (string)r.ItemArray[20];
-            e.puestoTitularEmpresa = (string)r.ItemArray[21];
-            e.nombreAsesorExterno = (string)r.ItemArray[22];
-            e.puestoAsesorExterno = (string)r.ItemArray[23];
-            e.nombreAcuerdoTrabajo = (string)r.ItemArray[24];
-            e.puestoAcuerdoTrabajo = (string)r.ItemArray[25];
-            e.nombreResidente = (string)r.ItemArray[26];
+            try
+            {
+                DataRow r = dt.Rows[0];
+                e.idSolicitud = (int)r.ItemArray[0];
+                e.noControl = (string)r.ItemArray[1];
+                e.lugar = (string)r.ItemArray[2];
+                e.fecha = (DateTime)r.ItemArray[3];
+                e.coordinadorCarrera = (string)r.ItemArray[4];
+                e.nombreProyecto = (string)r.ItemArray[5];
+                e.opcionElegida = (string)r.ItemArray[6];
+                e.periodo = (string)r.ItemArray[7];
+                e.numeroResidentes = (int)r.ItemArray[8];
+                e.nombreEmpresa = (string)r.ItemArray[9];
+                e.giro = (string)r.ItemArray[10];
+                e.sector = (string)r.ItemArray[11];
+                e.rfc = (string)r.ItemArray[12];
+                e.domicilioEmpresa = (string)r.ItemArray[13];
+                e.coloniaEmpresa = (string)r.ItemArray[14];
+                e.cpEmpresa = (string)r.ItemArray[15];
+                e.faxEmpresa = (string)r.ItemArray[16];
+                e.ciudadEmpresa = (string)r.ItemArray[17];
+                e.telefonoEmpresa = (string)r.ItemArray[18];
+                e.misionEmpresa = (string)r.ItemArray[19];
+                e.nombreTitularEmpresa = (string)r.ItemArray[20];
+                e.puestoTitularEmpresa = (string)r.ItemArray[21];
+                e.nombreAsesorExterno = (string)r.ItemArray[22];
+                e.puestoAsesorExterno = (string)r.ItemArray[23];
+                e.nombreAcuerdoTrabajo = (string)r.ItemArray[24];
+                e.puestoAcuerdoTrabajo = (string)r.ItemArray[25];
+                e.nombreResidente = (string)r.ItemArray[26];
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
             return e;
         }
         public bool delete(int idSolicitud)

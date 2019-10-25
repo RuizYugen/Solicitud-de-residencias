@@ -99,73 +99,85 @@ namespace Solicitud_de_residencias.Vistas
         {
             DetallesSolicitud ds = new DetallesSolicitud();
             DetallesSolicitudDAO dao = new DetallesSolicitudDAO();
-            ds = dao.getDetallesSolicitudByNoControl(noControlR);
-            if (ds.noControl != null)
+           
+            try
             {
-                modificar = true;
-                fechaCale2.Text = ds.fecha.ToString("yyyy-MM-dd");
-                txtCoordinador.InnerText = ds.coordinadorCarrera;
-                txtnombreProyecto.Value = ds.nombreProyecto;
-                if (ds.opcionElegida.Equals("Banco de proyectos"))
+                ds = dao.getDetallesSolicitudByNoControl(noControlR);
+                if (ds.noControl != null)
                 {
-                    bool b = true;
-                    
-                    
-                    this.rbBanco.Checked = b;
+                    modificar = true;
+                    fechaCale2.Text = ds.fecha.ToString("yyyy-MM-dd");
+                    txtCoordinador.InnerText = ds.coordinadorCarrera;
+                    txtnombreProyecto.Value = ds.nombreProyecto;
+                    if (ds.opcionElegida.Equals("Banco de proyectos"))
+                    {
+
+                        this.rbBanco2.Checked = true;
+                       // MsgBox("1", this.Page, this);
+
+                    }
+                    if (ds.opcionElegida.Equals("Propuesta propia"))
+                    {
+                        this.rbpropia2.Checked = true;
+                        MsgBox("2", this.Page, this);
+
+                    }
+                    if (ds.opcionElegida.Equals("Trabajador"))
+                    {
+                        this.rbtrabajador2.Checked = true;
+                        MsgBox("3", this.Page, this);
+                    }
+                    this.periodo.Value = ds.periodo;
+                    this.numResidentes.Value = ds.numeroResidentes + "";
+                    this.nombreEmpresa.Value = ds.nombreEmpresa;
+                    if (ds.giro.Equals("Industrial"))
+                    {
+                        this.rbIndus.Checked = true;
+
+                    }
+                    if (ds.giro.Equals("Servicios"))
+                    {
+                        this.rbServ.Checked = true;
+                    }
+                    if (ds.giro.Equals("Otro"))
+                    {
+                        this.rbotroG.Checked = true;
+                    }
+                    if (ds.sector.Equals("Publico"))
+                    {
+                        this.rbPublico.Checked = true;
+
+                    }
+                    if (ds.sector.Equals("privado"))
+                    {
+                        this.rbPrivado.Checked = true;
+                    }
+                    this.txtRfc.Value = ds.rfc;
+                    this.domicilioEmp.Value = ds.domicilioEmpresa;
+                    this.colonia.Value = ds.coloniaEmpresa;
+                    this.cp.Value = ds.cpEmpresa;
+                    this.telefonoEmp.Value = ds.telefonoEmpresa;
+                    this.fax.Value = ds.faxEmpresa;
+                    this.ciudadEmp.Value = ds.ciudadEmpresa;
+                    this.mision.Value = ds.misionEmpresa;
+                    this.titular.Value = ds.nombreTitularEmpresa;
+                    this.puestoTit.Value = ds.puestoTitularEmpresa;
+                    this.asesor.Value = ds.nombreAsesorExterno;
+                    this.puestoAse.Value = ds.puestoAsesorExterno;
+                    this.acuerdo.Value = ds.nombreAcuerdoTrabajo;
+                    this.puestoAcue.Value = ds.puestoAcuerdoTrabajo;
                 }
-                if (ds.opcionElegida.Equals("Propuesta propia"))
+                else
                 {
-                    this.rbpropia.Checked = true;
-                   
+
                 }
-                if (ds.opcionElegida.Equals("Trabajador"))
-                {
-                    this.rbtrabajador.Checked = true;
-                }
-                this.periodo.Value = ds.periodo;
-                this.numResidentes.Value = ds.numeroResidentes + "";
-                this.nombreEmpresa.Value = ds.nombreEmpresa;
-                if (ds.giro.Equals("Industrial"))
-                {
-                    this.rbIndus.Checked = true;
-                    
-                }
-                if (ds.giro.Equals("Servicios"))
-                {
-                    this.rbServ.Checked = true;
-                }
-                if (ds.giro.Equals("Otro"))
-                {
-                    this.rbotroG.Checked = true;
-                }
-                if (ds.sector.Equals( "Público"))
-                {
-                    this.rbPublico.Checked = true;
-                    
-                }
-                if (ds.sector.Equals("Privado"))
-                {
-                    this.rbPrivado.Checked = true;
-                }
-                this.txtRfc.Value = ds.rfc;
-                this.domicilioEmp.Value = ds.domicilioEmpresa;
-                this.colonia.Value = ds.coloniaEmpresa;
-                this.cp.Value = ds.cpEmpresa;
-                this.telefonoEmp.Value = ds.telefonoEmpresa;
-                this.fax.Value = ds.faxEmpresa;
-                this.ciudadEmp.Value = ds.ciudadEmpresa;
-                this.mision.Value = ds.misionEmpresa;
-                this.titular.Value = ds.nombreTitularEmpresa;
-                this.puestoTit.Value = ds.puestoTitularEmpresa;
-                this.asesor.Value = ds.nombreAsesorExterno;
-                this.puestoAse.Value = ds.puestoAsesorExterno;
-                this.acuerdo.Value = ds.nombreAcuerdoTrabajo;
-                this.puestoAcue.Value = ds.puestoAcuerdoTrabajo;
+
             }
-            else
+            catch(Exception ex)
             {
-               
+
             }
+           
 
         }
         public void guardarSolicitud()
@@ -213,7 +225,7 @@ namespace Solicitud_de_residencias.Vistas
 
             dao.insert(ds);
 
-            MsgBox(dao.getAll().Count + "", this.Page, this);
+           // MsgBox(dao.getAll().Count + "", this.Page, this);
 
             //  ds.fecha = fechaStr;
 
@@ -237,23 +249,23 @@ namespace Solicitud_de_residencias.Vistas
             fechaStr = fechaCale2.Text.ToString();
             coordinadorCarrera = txtCoordinador.InnerText;//ObtenerCooordinadorCarrera
             nombreProyectoS = txtnombreProyecto.Value.ToString();
-            bool banco = this.rbBanco.Checked;
-            bool propia = this.rbpropia.Checked;
-            bool trabajador = this.rbtrabajador.Checked;
+            bool banco = this.rbBanco2.Checked;
+            bool propia = this.rbpropia2.Checked;
+            bool trabajador = this.rbtrabajador2.Checked;
             if (banco)
             {
-                opcionElegida = rbBanco.Value.ToString();
+                opcionElegida = rbBanco2.Value.ToString();
             }
             if (propia)
             {
 
-                opcionElegida = rbpropia.Value.ToString();
+                opcionElegida = rbpropia2.Value.ToString();
 
 
             }
             if (trabajador)
             {
-                opcionElegida = rbtrabajador.Value.ToString();
+                opcionElegida = rbtrabajador2.Value.ToString();
             }
             periodoStr = this.periodo.Value.ToString();
             String aux = this.numResidentes.Value;
@@ -272,7 +284,7 @@ namespace Solicitud_de_residencias.Vistas
             }
             if (otros)
             {
-                giro = rbtrabajador.Value;
+                giro = rbotroG.Value;
             }
 
 
