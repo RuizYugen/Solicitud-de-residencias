@@ -131,6 +131,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Vistas\ControlDeAcceso.aspx" />
     <Content Include="Vistas\CSS\bootstrap.min.css" />
+    <Content Include="Vistas\CSS\cssAgregarUsuario.css" />
     <Content Include="Vistas\CSS\Solicitud.css" />
     <Content Include="Vistas\FrmSolicitud.aspx" />
     <Content Include="Vistas\IMG\EncabezadoItsur.png" />
