@@ -136,6 +136,7 @@
     <Content Include="Vistas\FrmSolicitud.aspx" />
     <Content Include="Vistas\IMG\EncabezadoItsur.png" />
     <Content Include="Vistas\IMG\IconoInicio.png" />
+    <Content Include="Vistas\IMG\user.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

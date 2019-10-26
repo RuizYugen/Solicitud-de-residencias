@@ -1,14 +1,61 @@
-﻿body {
-    background-color:lightgreen;
+﻿
+
+body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #4CAF50;
 }
 
 .et {
-    font:bolder;
+    /*font:bolder;
     font-family:Arial,Arial, Helvetica, sans-serif;
     margin-bottom:2px;
     font-size:large;
     font-weight:400;
     color:black;
+        */
+     font: bold 25px "Century Schoolbook", Georgia, Times, serif;
+ color: #333;
+ line-height: 90%;
+ margin: .2em 0 .4em 0;
+ letter-spacing: -2px;
+}
+
+
+.style_prevu_kit
+{
+    display:inline-block;
+    border:0;
+    width:50px;
+    height:50px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+    margin-right:35px;
+    border-radius:50%;
+
+}
+.style_prevu_kit:hover
+{
+    box-shadow: 0px 0px 10px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.025);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.025);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.025);
 }
 
 .contenedor{
@@ -16,5 +63,31 @@
     padding:30px;
     border-radius:10px;
     box-shadow:0px 0px 10px 0px;
-    margin:120px;
+    width:100%;
+    max-width:450px;
+    margin: 0 auto;
+    position:relative;
+    margin-top:25px;
+}
+
+.boton{
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.boton:hover {
+     background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.boton:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }

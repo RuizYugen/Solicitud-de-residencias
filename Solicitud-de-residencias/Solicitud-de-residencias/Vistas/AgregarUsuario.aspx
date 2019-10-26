@@ -15,9 +15,15 @@
     <form id="form1" runat="server">
     <div class="contenedor">
         <div class="form-group">
+            <div style="text-align:center;">
+                <div style="display:inline-block;">
+                    <img class="style_prevu_kit" src="/Vistas/IMG/user.png" alt="Alternate Text" />
+                </div>
+            </div>                    
+            <br />
         <asp:Label ID="Label1" runat="server" Text="Usuario" CssClass="et"></asp:Label>
         <br />
-        <input id="txtUsuario" type="text" runat="server" class="form-control" required="required"/><br />
+        <input id="txtUsuario" type="text" runat="server" class="form-control" required="required" autofocus="autofocus"/><br />
         <br />
         </div>
         <div class="form-group">
@@ -32,16 +38,12 @@
         <input id="txtRol" type="text" runat="server" class="form-control" placeholder="Alumno/Administrador" required="required"/><br />
         <br />
         </div>    
-        <div style="text-align:center;">
-            <div style="display:inline-block;">
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aceptar" CssClass="btn btn-primary btn-block"/>
+        <div style="text-align:center;width:100%">
+            <div style="display:inline-block;width:100%">
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aceptar" CssClass="boton"/><!--CssClass="btn btn-primary"-->
                 </div>
         </div>
     </div>
     </form>
-    <script>
-        bootstrapValidate('#txtUsuario','Ingrese un usuario');
-
-    </script>
 </body>
-</html>
+<%--</html>--%>
