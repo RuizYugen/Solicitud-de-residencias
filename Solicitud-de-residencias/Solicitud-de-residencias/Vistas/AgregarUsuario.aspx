@@ -15,6 +15,12 @@
     <form id="form1" runat="server">
     <div class="contenedor">
         <div class="form-group">
+            <div style="text-align:center;">
+                <div style="display:inline-block;">
+                    <img class="style_prevu_kit" src="/Vistas/IMG/user.png" alt="Alternate Text" />
+                </div>
+            </div>                    
+            <br />
         <asp:Label ID="Label1" runat="server" Text="Usuario" CssClass="et"></asp:Label>
         <br />
         <input id="txtUsuario" type="text" runat="server" class="form-control" required="required" autofocus="autofocus"/><br />
