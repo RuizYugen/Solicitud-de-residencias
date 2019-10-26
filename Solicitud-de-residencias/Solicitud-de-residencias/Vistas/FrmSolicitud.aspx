@@ -241,12 +241,12 @@
              </div>
              <div class="seguroNum">
                  <label class="texto25">Para Seguridad Social acudir:   </label>
-            <label  class="radio-inline"><input type="radio" name="seguroOp" id="rbImss" runat="server"/>IMSS</label>
+            <label  class="radio-inline"><input type="radio" name="seguroOp" id="rbImss" value="IMSS" runat="server"/>IMSS</label>
        
         
-            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbIssste" runat="server"/>ISSSTE</label>
+            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbIssste" value="ISSSTE" runat="server"/>ISSSTE</label>
         
-            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbOtrosS" runat="server"/>Otros</label>
+            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbOtrosS" value="OTRO" runat="server"/>Otros</label>
                  <br />
                   <div class="form-group, etiquetaText">
                     <label for="email" class="texto25">No. : </label>

@@ -167,9 +167,10 @@ namespace BackEnd.DAOS
             String SQL;
             try
             {
+                String fechaFormato= e.fecha.ToString("yyyy-MM-dd");
                 SQL = "UPDATE detallesSolicitud SET" +
                " idSolicitud=" + e.idSolicitud + ",noControl='" + e.noControl + "',lugar='" + e.lugar
-               + "',fecha='" + e.fecha +
+               + "',fecha='" + fechaFormato +
                "',coordinadorCarrera='" + e.coordinadorCarrera + "',nombreProyecto='" + e.nombreProyecto +
                "',opcionElegida='" + e.opcionElegida + "',periodo='" + e.periodo + "'" +
                ",numeroResidentes=" + e.numeroResidentes + ",nombreEmpresa='" + e.nombreEmpresa + "'" +

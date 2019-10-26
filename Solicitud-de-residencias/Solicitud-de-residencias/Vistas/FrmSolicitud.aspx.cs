@@ -38,7 +38,7 @@ namespace Solicitud_de_residencias.Vistas
         String nombreAcuerdoTrabajo = "";
         String puestoAcuerdoTrabajo = "";
         //Datos alumno en la solicitud
-        String nombreResidente = "";
+      static  String nombreResidente = "";
         String noControlR = "";
         String carreraStr = "";
         String domicilioStr = "";
@@ -51,17 +51,31 @@ namespace Solicitud_de_residencias.Vistas
         static String usuario = "eli";
 
         //Si ya existe la versión de una solicitud
-        Boolean modificar = false;
+       static Boolean modificar = false;
+       static DetallesSolicitud actualizar;
+        static Alumno a;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            llenarDatos();
-            cargarSolicitud();
+            
+            
+            if (!Page.IsPostBack)
+            {
+                
+                llenarDatos();
+                cargarSolicitud();
+            }
+            
 
         }
         public void llenarDatos()
+
         {
-            Alumno a = obtenerAlumno();
+            Alumno al = new Alumno();
+            AlumnoDAO dao = new AlumnoDAO();
+            al = dao.getAlumnoByUsuario(usuario);
+            a = new Alumno();
+            a = al;
             nombreResidente = a.nombre + " " + a.apellidoPaterno + " " + a.apellidoMaterno;
             noControlR = a.noControl;
             carreraStr = a.carrera;
@@ -103,69 +117,72 @@ namespace Solicitud_de_residencias.Vistas
             try
             {
                 ds = dao.getDetallesSolicitudByNoControl(noControlR);
+                
                 if (ds.noControl != null)
                 {
                     modificar = true;
-                    fechaCale2.Text = ds.fecha.ToString("yyyy-MM-dd");
-                    txtCoordinador.InnerText = ds.coordinadorCarrera;
-                    txtnombreProyecto.Value = ds.nombreProyecto;
-                    if (ds.opcionElegida.Equals("Banco de proyectos"))
+                    actualizar = new DetallesSolicitud();
+                    actualizar = ds;
+                    fechaCale2.Text = actualizar.fecha.ToString("yyyy-MM-dd");
+                    txtCoordinador.InnerText = actualizar.coordinadorCarrera;
+                    txtnombreProyecto.Value = actualizar.nombreProyecto;
+                    if (actualizar.opcionElegida.Equals("Banco de proyectos"))
                     {
 
                         this.rbBanco2.Checked = true;
                        // MsgBox("1", this.Page, this);
 
                     }
-                    if (ds.opcionElegida.Equals("Propuesta propia"))
+                    if (actualizar.opcionElegida.Equals("Propuesta propia"))
                     {
                         this.rbpropia2.Checked = true;
-                        MsgBox("2", this.Page, this);
+                        //MsgBox("2", this.Page, this);
 
                     }
-                    if (ds.opcionElegida.Equals("Trabajador"))
+                    if (actualizar.opcionElegida.Equals("Trabajador"))
                     {
                         this.rbtrabajador2.Checked = true;
-                        MsgBox("3", this.Page, this);
+                       // MsgBox("3", this.Page, this);
                     }
-                    this.periodo.Value = ds.periodo;
-                    this.numResidentes.Value = ds.numeroResidentes + "";
-                    this.nombreEmpresa.Value = ds.nombreEmpresa;
-                    if (ds.giro.Equals("Industrial"))
+                    this.periodo.Value = actualizar.periodo;
+                    this.numResidentes.Value = actualizar.numeroResidentes + "";
+                    this.nombreEmpresa.Value = actualizar.nombreEmpresa;
+                    if (actualizar.giro.Equals("Industrial"))
                     {
                         this.rbIndus.Checked = true;
 
                     }
-                    if (ds.giro.Equals("Servicios"))
+                    if (actualizar.giro.Equals("Servicios"))
                     {
                         this.rbServ.Checked = true;
                     }
-                    if (ds.giro.Equals("Otro"))
+                    if (actualizar.giro.Equals("Otro"))
                     {
                         this.rbotroG.Checked = true;
                     }
-                    if (ds.sector.Equals("Publico"))
+                    if (actualizar.sector.Equals("Publico"))
                     {
                         this.rbPublico.Checked = true;
 
                     }
-                    if (ds.sector.Equals("privado"))
+                    if (actualizar.sector.Equals("privado"))
                     {
                         this.rbPrivado.Checked = true;
                     }
-                    this.txtRfc.Value = ds.rfc;
-                    this.domicilioEmp.Value = ds.domicilioEmpresa;
-                    this.colonia.Value = ds.coloniaEmpresa;
-                    this.cp.Value = ds.cpEmpresa;
-                    this.telefonoEmp.Value = ds.telefonoEmpresa;
-                    this.fax.Value = ds.faxEmpresa;
-                    this.ciudadEmp.Value = ds.ciudadEmpresa;
-                    this.mision.Value = ds.misionEmpresa;
-                    this.titular.Value = ds.nombreTitularEmpresa;
-                    this.puestoTit.Value = ds.puestoTitularEmpresa;
-                    this.asesor.Value = ds.nombreAsesorExterno;
-                    this.puestoAse.Value = ds.puestoAsesorExterno;
-                    this.acuerdo.Value = ds.nombreAcuerdoTrabajo;
-                    this.puestoAcue.Value = ds.puestoAcuerdoTrabajo;
+                    this.txtRfc.Value = actualizar.rfc;
+                    this.domicilioEmp.Value = actualizar.domicilioEmpresa;
+                    this.colonia.Value = actualizar.coloniaEmpresa;
+                    this.cp.Value = actualizar.cpEmpresa;
+                    this.telefonoEmp.Value = actualizar.telefonoEmpresa;
+                    this.fax.Value = actualizar.faxEmpresa;
+                    this.ciudadEmp.Value = actualizar.ciudadEmpresa;
+                    this.mision.Value = actualizar.misionEmpresa;
+                    this.titular.Value = actualizar.nombreTitularEmpresa;
+                    this.puestoTit.Value = actualizar.puestoTitularEmpresa;
+                    this.asesor.Value = actualizar.nombreAsesorExterno;
+                    this.puestoAse.Value = actualizar.puestoAsesorExterno;
+                    this.acuerdo.Value = actualizar.nombreAcuerdoTrabajo;
+                    this.puestoAcue.Value = actualizar.puestoAcuerdoTrabajo;
                 }
                 else
                 {
@@ -184,62 +201,98 @@ namespace Solicitud_de_residencias.Vistas
         {
             DetallesSolicitud ds = new DetallesSolicitud();
             DetallesSolicitudDAO dao = new DetallesSolicitudDAO();
-            List<DetallesSolicitud> lista = dao.getAll();
-            int lastId = 0;
-            if (lista.Count > 0)
+            if (!modificar)
             {
-                lastId = lista.ElementAt(lista.Count - 1).idSolicitud;
-            }
-            else
+                List<DetallesSolicitud> lista = dao.getAll();
+                int lastId = 0;
+                if (lista.Count > 0)
+                {
+                    lastId = lista.ElementAt(lista.Count - 1).idSolicitud;
+                }
+                else
+                {
+                    lastId = 0;
+                }
+
+                ds.idSolicitud = lastId + 1;
+                ds.noControl = a.noControl;
+                ds.lugar = lugar;
+                ds.fecha = DateTime.Parse(fechaStr);
+                ds.coordinadorCarrera = coordinadorCarrera;
+                ds.nombreProyecto = nombreProyectoS;
+                ds.opcionElegida = opcionElegida;
+                ds.periodo = periodoStr;
+                ds.numeroResidentes = numeroResidentes;
+                ds.nombreEmpresa = nombreEmpresaStr;
+                ds.giro = giro;
+                ds.sector = sector;
+                ds.rfc = rfc;
+                ds.domicilioEmpresa = domicilioEmpresa;
+                ds.coloniaEmpresa = coloniaEmpresa;
+                ds.cpEmpresa = cpEmpresa;
+                ds.faxEmpresa = faxEmpresa;
+                ds.ciudadEmpresa = ciudadEmpresa;
+                ds.telefonoEmpresa = telefonoEmpresa;
+                ds.misionEmpresa = misionEmpresa;
+                ds.nombreTitularEmpresa = nombreTitularEmpresa;
+                ds.puestoTitularEmpresa = puestoTitularEmpresa;
+                ds.nombreAsesorExterno = nombreAsesorExterno;
+                ds.puestoAsesorExterno = puestoAsesorExterno;
+                ds.nombreAcuerdoTrabajo = nombreAcuerdoTrabajo;
+                ds.puestoAcuerdoTrabajo = puestoAcuerdoTrabajo;
+                ds.nombreResidente = nombreResidente;
+
+                dao.insert(ds);
+
+
+            }else
             {
-                lastId = 0;
+               // actualizar.noControl = noControlR;
+                actualizar.lugar = lugar;
+                actualizar.fecha = DateTime.Parse(fechaStr);
+                actualizar.coordinadorCarrera = coordinadorCarrera;
+                actualizar.nombreProyecto = nombreProyectoS;
+                actualizar.opcionElegida = opcionElegida;
+                actualizar.periodo = periodoStr;
+                actualizar.numeroResidentes = numeroResidentes;
+                actualizar.nombreEmpresa = nombreEmpresaStr;
+                actualizar.giro = giro;
+                actualizar.sector = sector;
+                actualizar.rfc = rfc;
+                actualizar.domicilioEmpresa = domicilioEmpresa;
+                actualizar.coloniaEmpresa = coloniaEmpresa;
+                actualizar.cpEmpresa = cpEmpresa;
+                actualizar.faxEmpresa = faxEmpresa;
+                actualizar.ciudadEmpresa = ciudadEmpresa;
+                actualizar.telefonoEmpresa = telefonoEmpresa;
+                actualizar.misionEmpresa = misionEmpresa;
+                actualizar.nombreTitularEmpresa = nombreTitularEmpresa;
+                actualizar.puestoTitularEmpresa = puestoTitularEmpresa;
+                actualizar.nombreAsesorExterno = nombreAsesorExterno;
+                actualizar.puestoAsesorExterno = puestoAsesorExterno;
+                actualizar.nombreAcuerdoTrabajo = nombreAcuerdoTrabajo;
+                actualizar.puestoAcuerdoTrabajo = puestoAcuerdoTrabajo;
+              //  actualizar.nombreResidente = nombreResidente;
+
+                dao.update(actualizar);
+
             }
-            
-            ds.idSolicitud = lastId+1;
-            ds.noControl = noControlR;
-            ds.lugar = lugar;
-            ds.fecha = DateTime.Parse(fechaStr);
-            ds.coordinadorCarrera = coordinadorCarrera;
-            ds.nombreProyecto = nombreProyectoS;
-            ds.opcionElegida = opcionElegida;
-            ds.periodo = periodoStr;
-            ds.numeroResidentes = numeroResidentes;
-            ds.nombreEmpresa = nombreEmpresaStr;
-            ds.giro = giro;
-            ds.sector = sector;
-            ds.rfc = rfc;
-            ds.domicilioEmpresa = domicilioEmpresa;
-            ds.coloniaEmpresa = coloniaEmpresa;
-            ds.cpEmpresa = cpEmpresa;
-            ds.faxEmpresa = faxEmpresa;
-            ds.ciudadEmpresa = ciudadEmpresa;
-            ds.telefonoEmpresa = telefonoEmpresa;
-            ds.misionEmpresa = misionEmpresa;
-            ds.nombreTitularEmpresa = nombreTitularEmpresa;
-            ds.puestoTitularEmpresa = puestoTitularEmpresa;
-            ds.nombreAsesorExterno = nombreAsesorExterno;
-            ds.puestoAsesorExterno = puestoAsesorExterno;
-            ds.nombreAcuerdoTrabajo = nombreAcuerdoTrabajo;
-            ds.puestoAcuerdoTrabajo = puestoAcuerdoTrabajo;
-            ds.nombreResidente = nombreResidente;
 
-            dao.insert(ds);
-
-           // MsgBox(dao.getAll().Count + "", this.Page, this);
+            // MsgBox(dao.getAll().Count + "", this.Page, this);
 
             //  ds.fecha = fechaStr;
 
             //  MsgBox(ds.fecha.Year.ToString(), this.Page, this);
-          //  ds.giro = giro;
-          
+            //  ds.giro = giro;
+
 
         }
         public Alumno obtenerAlumno()
         {
-            Alumno a=new Alumno();
+            Alumno al=new Alumno();
             AlumnoDAO dao= new AlumnoDAO();
-            a = dao.getAlumnoByUsuario(usuario);
-            return a;
+            al = dao.getAlumnoByUsuario(usuario);
+            return al;
 
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -319,6 +372,29 @@ namespace Solicitud_de_residencias.Vistas
                nombreAsesorExterno + " " + puestoAsesorExterno + " " + nombreAcuerdoTrabajo + " " + puestoAcuerdoTrabajo;
             // MsgBox(datos, this.Page, this);
             guardarSolicitud();
+            actualizarAlumno();
+        }
+        public void actualizarAlumno()
+        {
+            a.domicilio = domicilioAlu.Value.ToString();
+            a.email = email.Value.ToString();
+            a.ciudad = ciudadAlu.Value.ToString();
+            a.telefono = teleAlu.Value.ToString();
+            a.numeroServicioSalud = noSeguro.Value.ToString();
+            if (this.rbImss.Checked)
+            {
+                a.servicioSalud = this.rbImss.Value.ToString();
+            }
+            if (this.rbIssste.Checked)
+            {
+                a.servicioSalud = this.rbIssste.Value.ToString();
+            }
+            if (this.rbOtrosS.Checked)
+            {
+                a.servicioSalud = this.rbOtrosS.Value.ToString();
+            }
+            AlumnoDAO daoAl = new AlumnoDAO();
+            daoAl.update(a);
         }
         public void MsgBox(String ex, Page pg, Object obj)
         {
