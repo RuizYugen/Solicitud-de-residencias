@@ -56,15 +56,18 @@
         </div>
         <br />
         <br />
+       
         <div>
             <label class="texto15">OPCION ELEGIDA:   </label>
-            <label  class="radio-inline"><input type="radio" name="opcionProyect"   id="rbBanco" value="Banco de proyectos" runat="server" />Banco de proyectos</label>
+           <label  class="radio-inline"><input type="radio" name="opcionProyect" id="rbBanco2" value="Banco de proyectos"  runat="server"/>Banco de proyectos</label>
        
+       
+            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbpropia2" value="Propuesta propia" runat="server" />Propuesta propia</label>
         
-            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbpropia" value="Propuesta propia" runat="server" />Propuesta propia</label>
-        
-            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbtrabajador" value="Trabajador" runat="server" />Trabajador</label>
+            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbtrabajador2" value="Trabajador" runat="server" />Trabajador</label>
+            
         </div>
+        
         <br />
         <div class="periodoNum">
          <div class="form-group, etiquetaText, periodo">
@@ -108,10 +111,10 @@
         <div>
              <label class="texto15">Sector:   </label>
               
-            <label  class="radio-inline"><input type="radio" name="sector" id="rbPublico" value="Público"  runat="server"/>Público</label>
+            <label  class="radio-inline"><input type="radio" name="sector" id="rbPublico" value="Publico"  runat="server"/>Público</label>
        
         
-            <label class="radio-inline"><input type="radio" name="sector" id="rbPrivado" value="Privado" runat="server"/>Privado</label>
+            <label class="radio-inline"><input type="radio" name="sector" id="rbPrivado" value="privado" runat="server"/>Privado</label>
         
            
         </div>
@@ -238,12 +241,12 @@
              </div>
              <div class="seguroNum">
                  <label class="texto25">Para Seguridad Social acudir:   </label>
-            <label  class="radio-inline"><input type="radio" name="opcionProyect" id="rbImss" runat="server"/>IMSS</label>
+            <label  class="radio-inline"><input type="radio" name="seguroOp" id="rbImss" value="IMSS" runat="server"/>IMSS</label>
        
         
-            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbIssste" runat="server"/>ISSSTE</label>
+            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbIssste" value="ISSSTE" runat="server"/>ISSSTE</label>
         
-            <label class="radio-inline"><input type="radio" name="opcionProyect" id="rbOtrosS" runat="server"/>Otros</label>
+            <label class="radio-inline"><input type="radio" name="seguroOp" id="rbOtrosS" value="OTRO" runat="server"/>Otros</label>
                  <br />
                   <div class="form-group, etiquetaText">
                     <label for="email" class="texto25">No. : </label>

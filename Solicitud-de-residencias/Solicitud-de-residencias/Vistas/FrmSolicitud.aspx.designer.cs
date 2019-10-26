@@ -58,31 +58,31 @@ namespace Solicitud_de_residencias.Vistas {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtnombreProyecto;
         
         /// <summary>
-        /// rbBanco control.
+        /// rbBanco2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbBanco;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbBanco2;
         
         /// <summary>
-        /// rbpropia control.
+        /// rbpropia2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbpropia;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbpropia2;
         
         /// <summary>
-        /// rbtrabajador control.
+        /// rbtrabajador2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbtrabajador;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbtrabajador2;
         
         /// <summary>
         /// periodo control.
