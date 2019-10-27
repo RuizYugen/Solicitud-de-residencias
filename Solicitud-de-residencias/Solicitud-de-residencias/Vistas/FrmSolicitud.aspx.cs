@@ -61,7 +61,10 @@ namespace Solicitud_de_residencias.Vistas
             
             if (!Page.IsPostBack)
             {
-                
+                this.rbBanco2.Checked = true;
+                this.rbIndus.Checked = true;
+                this.rbPublico.Checked = true;
+                fechaCale2.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 llenarDatos();
                 cargarSolicitud();
             }
