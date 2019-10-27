@@ -1,0 +1,86 @@
+﻿body {
+    background: #4CAF50;
+}
+.et{
+   font: bold 25px "Century Schoolbook", Georgia, Times, serif;
+ color: #333;
+ line-height: 90%;
+ margin: .2em 0 .4em 0;
+ letter-spacing: -2px;
+}
+
+.contenedor{
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px 0px;
+    width:100%;
+    max-width:650px;
+    margin: 0 auto;
+    position:relative;
+    margin-top:25px;    
+    
+}
+
+.boton{
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.boton:hover {
+     background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+
+.Grid {
+       background-color: #fff; 
+       margin: 5px 0 10px 0; 
+       border: solid 1px #525252; 
+       border-collapse:collapse; 
+       font-family:Calibri; 
+       color: #474747;
+       width:100%;
+}
+
+.Grid td {
+
+      padding: 2px;
+
+      border: solid 1px #c1c1c1; }
+
+.Grid th  {
+
+      padding : 4px 2px;
+
+      color: #fff;
+
+      background: #363670 url(Images/grid-header.png) repeat-x top;
+
+      border-left: solid 1px #525252;
+
+      font-size: 0.9em; }
+
+.Grid .alt {
+
+      background: #fcfcfc url(Images/grid-alt.png) repeat-x top; }
+
+.Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
+
+.Grid .pgr table { margin: 3px 0; }
+
+.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }  
+
+.Grid .pgr a { color: Gray; text-decoration: none; }
+
+.Grid .pgr a:hover { color: #000; text-decoration: none; }

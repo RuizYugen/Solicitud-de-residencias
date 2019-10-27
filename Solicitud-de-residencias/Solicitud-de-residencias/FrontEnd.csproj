@@ -132,6 +132,7 @@
     <Content Include="Vistas\ControlDeAcceso.aspx" />
     <Content Include="Vistas\CSS\bootstrap.min.css" />
     <Content Include="Vistas\CSS\cssAgregarUsuario.css" />
+    <Content Include="Vistas\CSS\cssCatalogoUsuarios.css" />
     <Content Include="Vistas\CSS\Solicitud.css" />
     <Content Include="Vistas\FrmSolicitud.aspx" />
     <Content Include="Vistas\IMG\EncabezadoItsur.png" />
