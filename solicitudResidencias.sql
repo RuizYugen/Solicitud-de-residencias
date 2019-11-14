@@ -57,7 +57,7 @@ puestoAsesorExterno varchar(100) not null,
 nombreAcuerdoTrabajo varchar(100) not null,
 puestoAcuerdoTrabajo varchar(100) not null,
 nombreResidente varchar(100) not null,
-estado boolean default true,
+estado boolean default false,
 /*carrera varchar(90) not null,
 /*noControl varchar(9) not null,*/
 /*domicilioResidente varchar(100) not null,
