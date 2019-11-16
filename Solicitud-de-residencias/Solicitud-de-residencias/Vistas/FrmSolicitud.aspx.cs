@@ -38,7 +38,7 @@ namespace Solicitud_de_residencias.Vistas
         String nombreAcuerdoTrabajo = "";
         String puestoAcuerdoTrabajo = "";
         //Datos alumno en la solicitud
-      static  String nombreResidente = "";
+        static  String nombreResidente = "";
         String noControlR = "";
         String carreraStr = "";
         String domicilioStr = "";
@@ -51,8 +51,8 @@ namespace Solicitud_de_residencias.Vistas
         static String usuario = "eli";
 
         //Si ya existe la versión de una solicitud
-       static Boolean modificar = false;
-       static DetallesSolicitud actualizar;
+        static Boolean modificar = false;
+        static DetallesSolicitud actualizar;
         static Alumno a;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -287,7 +287,7 @@ namespace Solicitud_de_residencias.Vistas
 
             //  MsgBox(ds.fecha.Year.ToString(), this.Page, this);
             //  ds.giro = giro;
-
+            btnExportar.Visible = true;
 
         }
         public Alumno obtenerAlumno()
@@ -405,6 +405,11 @@ namespace Solicitud_de_residencias.Vistas
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
+        }
+
+        protected void btnExportar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script> window.open('" + "http://localhost:63324/Vistas/FrmExportarSolicitud.aspx" + "','_blank'); </script>");
         }
     }
 }

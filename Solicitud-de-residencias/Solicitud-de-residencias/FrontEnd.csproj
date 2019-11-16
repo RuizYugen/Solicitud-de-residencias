@@ -77,6 +77,14 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Spire.License, Version=1.3.7.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.5.11.2\lib\net40\Spire.License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.11.2.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.5.11.2\lib\net40\Spire.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,7 +141,9 @@
     <Content Include="Vistas\CSS\bootstrap.min.css" />
     <Content Include="Vistas\CSS\cssAgregarUsuario.css" />
     <Content Include="Vistas\CSS\cssCatalogoUsuarios.css" />
+    <Content Include="Vistas\CSS\Solicitud2.css" />
     <Content Include="Vistas\CSS\Solicitud.css" />
+    <Content Include="Vistas\FrmExportarSolicitud.aspx" />
     <Content Include="Vistas\FrmSolicitud.aspx" />
     <Content Include="Vistas\IMG\EncabezadoItsur.png" />
     <Content Include="Vistas\IMG\IconoInicio.png" />
@@ -169,6 +179,13 @@
     </Compile>
     <Compile Include="Vistas\ControlDeAcceso.aspx.designer.cs">
       <DependentUpon>ControlDeAcceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmExportarSolicitud.aspx.cs">
+      <DependentUpon>FrmExportarSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmExportarSolicitud.aspx.designer.cs">
+      <DependentUpon>FrmExportarSolicitud.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmSolicitud.aspx.cs">
       <DependentUpon>FrmSolicitud.aspx</DependentUpon>
