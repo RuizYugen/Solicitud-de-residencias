@@ -1,0 +1,226 @@
+﻿body {
+    margin-left:1%;
+    margin-right:1%;
+}
+
+.encabezado{
+    font-weight:bold;
+    text-align:center;
+    font-size:16px;
+}
+.textoIzquierda{
+    width:40%;
+}
+.texto10{
+    width:10%;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto25{
+    width:20%;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto30{
+    width:24.5%;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto15{
+    width:15%;
+    font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto20{
+    width:16.4%;
+    font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto75{
+    width:30%;
+    font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.texto{
+font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.textoDerecha{
+   padding-left:20%;
+   padding-right:0%;
+   width:inherit;
+}
+
+.etiquetaText{
+    display:inline-flex;
+    width:90%;
+}
+#coDatos{
+    display:inline-flex;
+    width:100%;
+   
+}
+#fecha{
+    float:right;
+    padding-right:10%;
+}
+
+.divRFC{
+    width:100%;
+    display:inline-flex;
+    
+}
+.divGiro{
+   width:50%;
+    
+}
+.alRB{
+    padding-left:20%;
+}
+
+.divNumRFC{
+    width:40%;
+    
+    display:inline-flex;
+    font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bolder;
+}
+.periodoNum{
+    width:100%;
+    display:flex;
+}
+.periodo{
+    display:flex;
+    width:50%;
+    float:right;
+}
+
+#periodo{
+    width:70%;
+    
+}
+.numR{
+display:flex;
+ width:50%;
+ float:right;
+ padding-left:15%;
+}
+#numResidentes{
+    width:41%;
+}
+.colonia{
+    display:flex;
+    width:100%;
+}
+#colonia{
+    width:75%;
+    
+}
+#cp{
+width:60%;
+}
+#fax{
+width:63%;
+}
+.ciudadTel{
+    display:flex;
+    width:100%;
+}
+.divCiudad{
+    width:80%;
+    float:left;
+}
+#ciudadEmp{
+    width:70%;
+   /* padding-left:20%;*/
+}
+.divTel{
+    width:20%;
+    float:right;
+    margin-left:20%;
+}
+
+#telefonoEmp{
+    width:60%;
+}
+.titular{
+    display:flex;
+    width:100%;
+}
+#titular{
+    width:100%;
+    margin-right:1%
+}
+#puestoTit{
+    width:65%;
+}
+#asesor{
+    width:100%;
+    margin-right:1%
+}
+#puestoAse{
+    width:65%;
+}
+#acuerdo{
+    width:100%;
+    margin-right:1%
+}
+#puestoAcue{
+    width:65%;
+}
+
+#carrera{
+    width:70%;
+  /*  padding-left:20%;*/
+}
+
+#noControl{
+    width:60%;
+}
+#ciudadAlu{
+    width:70%;
+  /*  padding-left:20%;*/
+}
+
+#teleAlu{
+    width:60%;
+}
+.emailSeguro{
+    display:flex;
+}
+.divEmail{
+    width:50%;
+    float:left;
+   
+}
+#email{
+     margin-right:5%;
+}
+.seguroNum{
+    width:50%;
+    float:right;
+}
+#noSeguro{
+    width:66%;
+    margin-left:3%;
+}
+.firma{
+    width:25%;
+    margin-left:35%;
+    border-top:1px solid black;
+    text-align:center;
+   
+    
+}
+.botones{
+    float:right;
+    width:25%;
+}
