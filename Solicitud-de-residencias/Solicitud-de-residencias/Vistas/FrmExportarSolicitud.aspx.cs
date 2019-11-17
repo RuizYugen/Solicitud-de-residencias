@@ -51,7 +51,7 @@ namespace Solicitud_de_residencias.Vistas
         String nSeguro = "";
         String telefonoStr = "";
         // Datos del alumno
-        static String usuario = "eli";
+     public  static String usuario = "";
 
         //Si ya existe la versión de una solicitud
         static Boolean modificar = false;
@@ -59,8 +59,10 @@ namespace Solicitud_de_residencias.Vistas
         static Alumno a;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //usuario = Session["Usuario"].ToString();
 
-                this.rbBanco2.Checked = true;
+
+            this.rbBanco2.Checked = true;
                 this.rbIndus.Checked = true;
                 this.rbPublico.Checked = true;
                 fechaCale2.Text = DateTime.Now.ToString("yyyy-MM-dd");

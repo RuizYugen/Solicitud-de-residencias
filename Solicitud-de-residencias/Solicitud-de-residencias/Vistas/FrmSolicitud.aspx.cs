@@ -48,7 +48,7 @@ namespace Solicitud_de_residencias.Vistas
         String nSeguro = "";
         String telefonoStr = "";
         // Datos del alumno
-        static String usuario = "eli";
+      static String usuario = "";
 
         //Si ya existe la versión de una solicitud
         static Boolean modificar = false;
@@ -57,8 +57,8 @@ namespace Solicitud_de_residencias.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            usuario = Session["Usuario"].ToString();
+            FrmExportarSolicitud.usuario = Session["Usuario"].ToString();
             if (!Page.IsPostBack)
             {
                 this.rbBanco2.Checked = true;

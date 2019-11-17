@@ -10,6 +10,7 @@ namespace Solicitud_de_residencias.Vistas
 {
     public partial class ControlDeAcceso : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -30,6 +31,7 @@ namespace Solicitud_de_residencias.Vistas
                 {
                     case "Alumno":
                         Response.Redirect("FrmSolicitud.aspx");
+                        
                         break;
                     case "Administrador":
                         Response.Redirect("CatalogoUsuarios.aspx");
