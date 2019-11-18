@@ -193,7 +193,7 @@ namespace Solicitud_de_residencias.Vistas
                 }
 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
