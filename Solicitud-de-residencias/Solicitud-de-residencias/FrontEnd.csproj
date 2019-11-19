@@ -149,6 +149,7 @@
     <Content Include="Vistas\CSS\Solicitud.css" />
     <Content Include="Vistas\FrmExportarExcel.aspx" />
     <Content Include="Vistas\FrmExportarSolicitud.aspx" />
+    <Content Include="Vistas\FrmListaSolicitudes.aspx" />
     <Content Include="Vistas\FrmSolicitud.aspx" />
     <Content Include="Vistas\IMG\EncabezadoItsur.png" />
     <Content Include="Vistas\IMG\IconoInicio.png" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="Vistas\FrmExportarSolicitud.aspx.designer.cs">
       <DependentUpon>FrmExportarSolicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmListaSolicitudes.aspx.cs">
+      <DependentUpon>FrmListaSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmListaSolicitudes.aspx.designer.cs">
+      <DependentUpon>FrmListaSolicitudes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmSolicitud.aspx.cs">
       <DependentUpon>FrmSolicitud.aspx</DependentUpon>

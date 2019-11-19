@@ -44,10 +44,12 @@
     <Compile Include="DAOS\AlumnoDAO.cs" />
     <Compile Include="DAOS\DetallesSolicitudDAO.cs" />
     <Compile Include="DAOS\ExportarExcelDao.cs" />
+    <Compile Include="DAOS\SolicitudesDAO.cs" />
     <Compile Include="DAOS\UsuarioDAO.cs" />
     <Compile Include="Modelos\Alumno.cs" />
     <Compile Include="Modelos\DetallesSolicitud.cs" />
     <Compile Include="Modelos\ExportarExcel.cs" />
+    <Compile Include="Modelos\Solicitudes.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Conexión.cs" />
