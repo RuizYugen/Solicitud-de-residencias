@@ -6,11 +6,16 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link href="CSS/cssCatalogoUsuarios.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
+    <div class="contenedor">
+    <div style="text-align:center;"class="form-group">
+    <div style="display:inline-block;">
+        <h1>Datos del Alumno</h1>
+        <br />
         <asp:Label ID="Label1" runat="server" Text="No. Control"></asp:Label>
         <br />
         <asp:TextBox ID="txtNoControl" runat="server"></asp:TextBox>
@@ -59,8 +64,17 @@
         <br />
         <asp:TextBox ID="txtAsesorInterno" runat="server"></asp:TextBox>
         <br />
+        <br />
         <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+        <br />
+        <br />
+        <asp:Button ID="btnSolicitud" runat="server" Text="Solicitud" OnClick="btnSolicitud_Click" />
+        <br />
+        <br />
+        <asp:Button ID="btnImprimir" runat="server" Text="Imprimir Solicitud" OnClick="btnImprimir_Click" />
     </div>
+        </div>
+        </div>
     </form>
 </body>
 </html>

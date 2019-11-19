@@ -30,7 +30,7 @@
         <br />
         <div style="text-align:center;">
            
-        <asp:Button Text="Volver"  CssClass="boton" runat ="server" OnClick="Unnamed1_Click" />
+        <asp:Button Text="Ver solicitudes"  CssClass="boton" runat ="server" OnClick="Unnamed1_Click" />
         <asp:Button ID="Button1" runat="server" Text="Agregar Usuario" OnClick="Button1_Click" CssClass="boton"/>
             
         </div>

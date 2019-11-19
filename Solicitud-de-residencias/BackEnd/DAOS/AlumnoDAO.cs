@@ -83,6 +83,7 @@ namespace BackEnd.DAOS
             e.ciudad = (string)r.ItemArray[9];
             e.servicioSalud = (string)r.ItemArray[10];
             e.numeroServicioSalud = (string)r.ItemArray[11];
+            e.asesorInterno = (string)r.ItemArray[12];
             return e;
         }
         public bool delete(string noControl)
@@ -115,17 +116,20 @@ namespace BackEnd.DAOS
             try
             {
                 SQL = "UPDATE alumno SET" +
-               " noControl='" + e.noControl + "',usuario='" + e.usuario + "',nombre='" + e.nombre
-               + "',apellidoPaterno='" + e.apellidoPaterno +
-               "',apellidoMaterno='" + e.apellidoMaterno + "',carrera='" + e.carrera + "',email='" + e.email + "',telefono='" + e.telefono + "'" + ",domicilio='" + e.domicilio + "'" + ",ciudad='" + e.ciudad + "'" + ",servicioSalud='" + e.servicioSalud + "'" + ",numeroServicioSalud='" + e.numeroServicioSalud + "'" +
-               " WHERE noControl like '" + e.noControl + "';";
+                " nombre= '" + e.nombre
+               + "', apellidoPaterno= '" + e.apellidoPaterno +
+               "', apellidoMaterno= '" + e.apellidoMaterno + "', carrera='" + e.carrera + "',email='" + e.email +
+               "',telefono='" + e.telefono + "'" + ",domicilio='" + e.domicilio + "'" + ",ciudad='" + e.ciudad + "'" +
+               ",servicioSalud='" + e.servicioSalud + "'" + ",numeroServicioSalud='" + e.numeroServicioSalud + "'" +
+               ",asesorinterno='" + e.asesorInterno + "'"+
+               " WHERE usuario like '" + e.usuario + "';";
 
                 MySqlCommand sqlcom = new MySqlCommand();
                 sqlcom.CommandText = SQL;
                 conexion.EjecutaSQLComando(sqlcom);
                 return true;
             }
-            catch (Exception)
+            catch (Exception eb)
             {
                 return false;
             }

@@ -17,7 +17,7 @@ namespace BackEnd.DAOS
             List<Solicitudes> lista = new List<Solicitudes>();
             Conexion con = new Conexion();
 
-            DataSet datos = con.LLenaComboGrid("SELECT idSolicitud,alumno.noControl, nombre, estado  FROM solicitudresidencias.alumno INNER JOIN solicitudresidencias.detallessolicitud where alumno.noControl = detallessolicitud.noControl" + ";");
+            DataSet datos = con.LLenaComboGrid("SELECT detallessolicitud.idSolicitud,alumno.noControl, alumno.nombre, detallessolicitud.estado  FROM alumno INNER JOIN detallessolicitud where alumno.noControl = detallessolicitud.noControl" + ";");
             DataTable dt = datos.Tables[0];
             Solicitudes e;
             foreach (DataRow r in dt.Rows)
@@ -41,7 +41,7 @@ namespace BackEnd.DAOS
             String SQL;
             try
             {
-                SQL = "UPDATE solicitudresidencias.detallessolicitud SET estado = "+ e.estado+" WHERE idSolicitud like "+e.idSolicitud + ";";
+                SQL = "UPDATE detallessolicitud SET estado = "+ e.estado+" WHERE idSolicitud like "+e.idSolicitud + ";";
 
                 MySqlCommand sqlcom = new MySqlCommand();
                 sqlcom.CommandText = SQL;

@@ -67,7 +67,7 @@ namespace Solicitud_de_residencias.Vistas
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmSolicitud.aspx");
+            Response.Redirect("FrmListaSolicitudes.aspx");
         }
     }
 }
