@@ -132,7 +132,7 @@ namespace BackEnd.DAOS
                 e.puestoAcuerdoTrabajo = (string)r.ItemArray[25];
                 e.nombreResidente = (string)r.ItemArray[26];
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }

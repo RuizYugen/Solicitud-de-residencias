@@ -22,7 +22,7 @@ namespace BackEnd.Modelos
         public string ciudad { get; set; }
         public string servicioSalud { get; set; }
         public string numeroServicioSalud { get; set; }
-
+        public string asesorInterno { get; set; }
         public Alumno() { }
 
         public Alumno(string noControl, string usuario, string nombre, string apellidoPaterno, string apellidoMaterno, string carrera, string email, string telefono, string domicilio, string ciudad, string servicioSalud, string numeroServicioSalud)

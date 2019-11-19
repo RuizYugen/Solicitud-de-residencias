@@ -30,7 +30,7 @@ namespace Solicitud_de_residencias.Vistas
                 switch (Session["Rol"].ToString())
                 {
                     case "Alumno":
-                        Response.Redirect("FrmSolicitud.aspx");
+                        Response.Redirect("FrmDatosAlumno.aspx");
                         
                         break;
                     case "Administrador":

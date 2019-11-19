@@ -147,6 +147,7 @@
     <Content Include="Vistas\CSS\cssCatalogoUsuarios.css" />
     <Content Include="Vistas\CSS\Solicitud2.css" />
     <Content Include="Vistas\CSS\Solicitud.css" />
+    <Content Include="Vistas\FrmDatosAlumno.aspx" />
     <Content Include="Vistas\FrmExportarExcel.aspx" />
     <Content Include="Vistas\FrmExportarSolicitud.aspx" />
     <Content Include="Vistas\FrmListaSolicitudes.aspx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="Vistas\ControlDeAcceso.aspx.designer.cs">
       <DependentUpon>ControlDeAcceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmDatosAlumno.aspx.cs">
+      <DependentUpon>FrmDatosAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmDatosAlumno.aspx.designer.cs">
+      <DependentUpon>FrmDatosAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmExportarExcel.aspx.cs">
       <DependentUpon>FrmExportarExcel.aspx</DependentUpon>

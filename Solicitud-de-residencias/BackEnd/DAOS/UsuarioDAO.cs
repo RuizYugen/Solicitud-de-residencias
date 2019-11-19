@@ -127,7 +127,7 @@ namespace BackEnd.DAOS
 
                 return user;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

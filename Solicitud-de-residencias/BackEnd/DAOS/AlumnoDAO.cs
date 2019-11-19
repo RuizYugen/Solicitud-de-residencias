@@ -137,7 +137,7 @@ namespace BackEnd.DAOS
             try
             {
                 Conexion conexion = new Conexion();
-                String SQL = "INSERT INTO alumno (noControl,usuario,nombre,apellidoPaterno,apellidoMaterno,carrera,email,telefono,domicilio,ciudad,servicioSalud,numeroServicioSalud) VALUES (@noControl,@usuario,@nombre,@apellidoPaterno,@apellidoMaterno,@carrera,@email,@telefono,@domicilio,@ciudad,@servicioSalud,@numeroServicioSalud);";
+                String SQL = "INSERT INTO alumno (noControl,usuario,nombre,apellidoPaterno,apellidoMaterno,carrera,email,telefono,domicilio,ciudad,servicioSalud,numeroServicioSalud,asesorInterno) VALUES (@noControl,@usuario,@nombre,@apellidoPaterno,@apellidoMaterno,@carrera,@email,@telefono,@domicilio,@ciudad,@servicioSalud,@numeroServicioSalud,@asesorInterno);";
                 MySqlCommand sqlcom = new MySqlCommand();
                 sqlcom.CommandText = SQL;
                 sqlcom.Parameters.AddWithValue("@noControl", i.noControl);
@@ -152,10 +152,11 @@ namespace BackEnd.DAOS
                 sqlcom.Parameters.AddWithValue("@ciudad", i.ciudad);
                 sqlcom.Parameters.AddWithValue("@servicioSalud", i.servicioSalud);
                 sqlcom.Parameters.AddWithValue("@numeroServicioSalud", i.numeroServicioSalud);
+                sqlcom.Parameters.AddWithValue("@asesorInterno", i.asesorInterno);
                 conexion.EjecutaSQLComando(sqlcom);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 return false;

@@ -15,7 +15,7 @@
     <div class="contenedor">
     <div style="text-align:center;"class="form-group">
     <div style="display:inline-block;">
-        <asp:Label Text="Catálogo de usuarios" runat="server" class="et"/>
+        <asp:Label Text="Catálogo de usuarios" runat="server" CssClass="et"/>
         <asp:GridView ID="GridView1" runat="server" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" CssClass="Grid" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"  OnRowDeleted="GridView1_RowDeleted" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />

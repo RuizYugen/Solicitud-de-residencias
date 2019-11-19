@@ -38,7 +38,7 @@ namespace BackEnd.Util
                 conexion.Open();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -63,7 +63,7 @@ namespace BackEnd.Util
                     return null;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -101,7 +101,7 @@ namespace BackEnd.Util
                     return 0;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }
