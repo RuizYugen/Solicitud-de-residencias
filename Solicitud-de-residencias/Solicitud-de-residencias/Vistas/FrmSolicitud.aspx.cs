@@ -59,6 +59,8 @@ namespace Solicitud_de_residencias.Vistas
         {
             usuario = Session["Usuario"].ToString();
             FrmExportarSolicitud.usuario = Session["Usuario"].ToString();
+            periodo1.Items.Add("AGO-DIC");
+            periodo1.Items.Add("ENE-JUN");
             if (!Page.IsPostBack)
             {
                 this.rbBanco2.Checked = true;
@@ -147,7 +149,17 @@ namespace Solicitud_de_residencias.Vistas
                         this.rbtrabajador2.Checked = true;
                        // MsgBox("3", this.Page, this);
                     }
-                    this.periodo.Value = actualizar.periodo;
+                    String[] periodoArr = actualizar.periodo.Split(' ');
+                    if (periodoArr[0].Equals("AGO-DIC"))
+                    {
+                        periodo1.SelectedIndex = 0;
+                    }else
+                    {
+                        periodo1.SelectedIndex = 1;
+                    }
+                    periodoAnio.Value = periodoArr[1];
+                   // this.periodo.Value = actualizar.periodo;
+                   
                     this.numResidentes.Value = actualizar.numeroResidentes + "";
                     this.nombreEmpresa.Value = actualizar.nombreEmpresa;
                     if (actualizar.giro.Equals("Industrial"))
@@ -300,83 +312,91 @@ namespace Solicitud_de_residencias.Vistas
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                lugar = "Uriangato Gto.";
+                fechaStr = fechaCale2.Text.ToString();
+                coordinadorCarrera = txtCoordinador.InnerText;//ObtenerCooordinadorCarrera
+                nombreProyectoS = txtnombreProyecto.Value.ToString();
+                bool banco = this.rbBanco2.Checked;
+                bool propia = this.rbpropia2.Checked;
+                bool trabajador = this.rbtrabajador2.Checked;
+                if (banco)
+                {
+                    opcionElegida = rbBanco2.Value.ToString();
+                }
+                if (propia)
+                {
 
-            lugar = "Uriangato Gto.";
-            fechaStr = fechaCale2.Text.ToString();
-            coordinadorCarrera = txtCoordinador.InnerText;//ObtenerCooordinadorCarrera
-            nombreProyectoS = txtnombreProyecto.Value.ToString();
-            bool banco = this.rbBanco2.Checked;
-            bool propia = this.rbpropia2.Checked;
-            bool trabajador = this.rbtrabajador2.Checked;
-            if (banco)
-            {
-                opcionElegida = rbBanco2.Value.ToString();
-            }
-            if (propia)
-            {
-
-                opcionElegida = rbpropia2.Value.ToString();
-
-
-            }
-            if (trabajador)
-            {
-                opcionElegida = rbtrabajador2.Value.ToString();
-            }
-            periodoStr = this.periodo.Value.ToString();
-            String aux = this.numResidentes.Value;
-            numeroResidentes = int.Parse(aux);
-            nombreEmpresaStr = nombreEmpresa.Value;
-            bool industrial = rbIndus.Checked;
-            bool servicios = rbServ.Checked;
-            bool otros = rbotroG.Checked;
-            if (industrial)
-            {
-                giro = rbIndus.Value;
-            }
-            if (servicios)
-            {
-                giro = rbServ.Value;
-            }
-            if (otros)
-            {
-                giro = rbotroG.Value;
-            }
+                    opcionElegida = rbpropia2.Value.ToString();
 
 
-            bool publico = rbPublico.Checked;
-            bool privado = rbPrivado.Checked;
-            if (publico)
-            {
-                sector = rbPublico.Value;
+                }
+                if (trabajador)
+                {
+                    opcionElegida = rbtrabajador2.Value.ToString();
+                }
+                //  periodoStr = this.periodo.Value.ToString();
+                periodoStr = periodo1.Text + " " + periodoAnio.Value.ToString();
+                String aux = this.numResidentes.Value;
+                numeroResidentes = int.Parse(aux);
+                nombreEmpresaStr = nombreEmpresa.Value;
+                bool industrial = rbIndus.Checked;
+                bool servicios = rbServ.Checked;
+                bool otros = rbotroG.Checked;
+                if (industrial)
+                {
+                    giro = rbIndus.Value;
+                }
+                if (servicios)
+                {
+                    giro = rbServ.Value;
+                }
+                if (otros)
+                {
+                    giro = rbotroG.Value;
+                }
+
+
+                bool publico = rbPublico.Checked;
+                bool privado = rbPrivado.Checked;
+                if (publico)
+                {
+                    sector = rbPublico.Value;
+                }
+                if (privado)
+                {
+                    sector = rbPrivado.Value;
+                }
+                rfc = this.txtRfc.Value;
+                domicilioEmpresa = this.domicilioEmp.Value;
+                coloniaEmpresa = this.colonia.Value;
+                cpEmpresa = this.cp.Value;
+                faxEmpresa = this.fax.Value;
+                ciudadEmpresa = this.ciudadEmp.Value;
+                telefonoEmpresa = this.telefonoEmp.Value;
+                misionEmpresa = this.mision.Value;
+                nombreTitularEmpresa = this.titular.Value;
+                puestoTitularEmpresa = this.puestoTit.Value;
+                nombreAsesorExterno = this.asesor.Value;
+                puestoAsesorExterno = this.puestoAse.Value;
+                nombreAcuerdoTrabajo = this.acuerdo.Value;
+                puestoAcuerdoTrabajo = this.puestoAcue.Value;
+                String datos = lugar + " " + fechaStr + " " + coordinadorCarrera + " " + nombreProyectoS + " " + opcionElegida +
+                    " " + periodoStr + " " + numeroResidentes + " " + nombreEmpresaStr + " " + giro + " " + sector +
+                    " " + rfc + " " + domicilioEmpresa + " " + coloniaEmpresa + " " + cpEmpresa + " " + faxEmpresa + " " + ciudadEmpresa + " " +
+                   telefonoEmpresa + " " + misionEmpresa + " " + nombreTitularEmpresa + " " + puestoTitularEmpresa + " " +
+                   nombreAsesorExterno + " " + puestoAsesorExterno + " " + nombreAcuerdoTrabajo + " " + puestoAcuerdoTrabajo;
+                // MsgBox(datos, this.Page, this);
+                guardarSolicitud();
+                actualizarAlumno();
+                MsgBox("Solicitud Guardada con éxito.", this.Page, this);
             }
-            if (privado)
-            {
-                sector = rbPrivado.Value;
+            catch (Exception ex){
+                MsgBox("Verifique los datos ingresados.", this.Page, this);
             }
-            rfc = this.txtRfc.Value;
-            domicilioEmpresa = this.domicilioEmp.Value;
-            coloniaEmpresa = this.colonia.Value;
-            cpEmpresa = this.cp.Value;
-            faxEmpresa = this.fax.Value;
-            ciudadEmpresa = this.ciudadEmp.Value;
-            telefonoEmpresa = this.telefonoEmp.Value;
-            misionEmpresa = this.mision.Value;
-            nombreTitularEmpresa = this.titular.Value;
-            puestoTitularEmpresa = this.puestoTit.Value;
-            nombreAsesorExterno = this.asesor.Value;
-            puestoAsesorExterno = this.puestoAse.Value;
-            nombreAcuerdoTrabajo = this.acuerdo.Value;
-            puestoAcuerdoTrabajo = this.puestoAcue.Value;
-            String datos = lugar + " " + fechaStr + " " + coordinadorCarrera + " " + nombreProyectoS + " " + opcionElegida +
-                " " + periodoStr + " " + numeroResidentes + " " + nombreEmpresaStr + " " + giro + " " + sector +
-                " " + rfc + " " + domicilioEmpresa + " " + coloniaEmpresa + " " + cpEmpresa + " " + faxEmpresa + " " + ciudadEmpresa + " " +
-               telefonoEmpresa + " " + misionEmpresa + " " + nombreTitularEmpresa + " " + puestoTitularEmpresa + " " +
-               nombreAsesorExterno + " " + puestoAsesorExterno + " " + nombreAcuerdoTrabajo + " " + puestoAcuerdoTrabajo;
-            // MsgBox(datos, this.Page, this);
-            guardarSolicitud();
-            actualizarAlumno();
-        }
+
+                    }
         public void actualizarAlumno()
         {
             a.domicilio = domicilioAlu.Value.ToString();

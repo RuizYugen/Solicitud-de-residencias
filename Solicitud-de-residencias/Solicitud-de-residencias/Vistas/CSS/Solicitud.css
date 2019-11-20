@@ -103,8 +103,14 @@ font-family:Arial, Helvetica, sans-serif;
     float:right;
 }
 
-#periodo{
+#periodo1{
+    margin-left:13%;
     width:70%;
+    
+    
+}
+#periodoAnio{
+    width:30%;
     
 }
 .numR{
