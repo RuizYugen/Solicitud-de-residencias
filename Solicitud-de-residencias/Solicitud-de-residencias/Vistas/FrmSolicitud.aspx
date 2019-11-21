@@ -284,7 +284,6 @@
         <div class="btn-group, botones">
             <asp:Button id="btnGuardar" Text="Guardar" runat="server" CssClass="btn-primary" OnClick="btnGuardar_Click" />
             <asp:Button id="btnCancelar" Text="Cancelar" runat="server" CssClass="btn-default" />
-            <asp:Button ID="btnExportar" runat="server" Text="Exportar Solicitud"  CssClass="btn-default" OnClick="btnExportar_Click" Visible="False" />
         </div>
         </div>
     </form>

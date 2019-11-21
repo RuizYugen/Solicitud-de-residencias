@@ -85,13 +85,22 @@ namespace Solicitud_de_residencias.Vistas {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbtrabajador2;
         
         /// <summary>
-        /// Control periodo.
+        /// Control periodo1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText periodo;
+        protected global::System.Web.UI.WebControls.DropDownList periodo1;
+        
+        /// <summary>
+        /// Control periodoAnio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText periodoAnio;
         
         /// <summary>
         /// Control numResidentes.

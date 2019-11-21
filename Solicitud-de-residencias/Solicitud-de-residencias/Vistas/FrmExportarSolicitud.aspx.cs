@@ -7,39 +7,15 @@ using System.Web.UI.WebControls;
 using BackEnd.DAOS;
 using BackEnd.Modelos;
 using System.Threading;
-using Spire.Pdf;
-using Spire.Pdf.HtmlConverter;
-using System.IO;
+using IronPdf;
+
 
 namespace Solicitud_de_residencias.Vistas
 {
     public partial class FrmExportarSolicitud : System.Web.UI.Page
     {
-        int idSolicitud = 0;
-        String lugar = "";
-        String fechaStr = "";
-        String coordinadorCarrera = "";
-        String nombreProyectoS = "";
-        String opcionElegida = "";
-        String periodoStr = "";
-        int numeroResidentes = 0;
-        String nombreEmpresaStr = "";
-        String giro = "";
-        String sector = "";
-        String rfc = "";
-        String domicilioEmpresa = "";
-        String coloniaEmpresa = "";
-        String cpEmpresa = "";
-        String faxEmpresa = "";
-        String ciudadEmpresa = "";
-        String telefonoEmpresa = "";
-        String misionEmpresa = "";
-        String nombreTitularEmpresa = "";
-        String puestoTitularEmpresa = "";
-        String nombreAsesorExterno = "";
-        String puestoAsesorExterno = "";
-        String nombreAcuerdoTrabajo = "";
-        String puestoAcuerdoTrabajo = "";
+
+       
         //Datos alumno en la solicitud
         static String nombreResidente = "";
         String noControlR = "";
@@ -51,7 +27,7 @@ namespace Solicitud_de_residencias.Vistas
         String nSeguro = "";
         String telefonoStr = "";
         // Datos del alumno
-     public  static String usuario = "";
+        public static String usuario = "";
 
         //Si ya existe la versión de una solicitud
         static Boolean modificar = false;
@@ -59,29 +35,57 @@ namespace Solicitud_de_residencias.Vistas
         static Alumno a;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //usuario = Session["Usuario"].ToString();
-
-
-            this.rbBanco2.Checked = true;
-                this.rbIndus.Checked = true;
-                this.rbPublico.Checked = true;
-                fechaCale2.Text = DateTime.Now.ToString("yyyy-MM-dd");
+           
+            if (!Page.IsPostBack)
+            {
                 llenarDatos();
                 cargarSolicitud();
-
-                //Creamos el delegado 
-                ThreadStart delegado = new ThreadStart(PDF);
-                //Creamos la instancia del hilo 
-                Thread hilo = new Thread(delegado);
-                //Iniciamos el hilo 
-                hilo.Start();
-            
-             
-               ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
-            
+               
+                ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
+            }           
         }
 
-      
+        public void llenarDatos()
+
+        {
+            Alumno al = new Alumno();
+            AlumnoDAO dao = new AlumnoDAO();
+            al = dao.getAlumnoByUsuario(usuario);
+            a = new Alumno();
+            a = al;
+            nombreResidente = a.nombre + " " + a.apellidoPaterno + " " + a.apellidoMaterno;
+            noControlR = a.noControl;
+            carreraStr = a.carrera;
+            domicilioStr = a.domicilio;
+            emailStr = a.email;
+            ciudad = a.ciudad;
+            seguro = a.servicioSalud;
+            nSeguro = a.numeroServicioSalud;
+            telefonoStr = a.telefono;
+
+            this.nombreAlumno.Value = nombreResidente;
+            this.noControl.Value = noControlR;
+            this.carrera.Value = carreraStr;
+            this.domicilioAlu.Value = domicilioStr;
+            this.email.Value = emailStr;
+            this.ciudadAlu.Value = ciudad;
+            this.noSeguro.Value = nSeguro;
+            this.teleAlu.Value = telefonoStr;
+
+            if (a.servicioSalud.Equals("IMSS"))
+            {
+                this.rbImss.Checked = true;
+            }
+            if (a.servicioSalud.Equals("ISSSTE"))
+            {
+                this.rbIssste.Checked = true;
+            }
+            if (a.servicioSalud.Equals("Otros"))
+            {
+                this.rbOtrosS.Checked = true;
+            }
+
+        }
         public void cargarSolicitud()
         {
             DetallesSolicitud ds = new DetallesSolicitud();
@@ -117,7 +121,18 @@ namespace Solicitud_de_residencias.Vistas
                         this.rbtrabajador2.Checked = true;
                         // MsgBox("3", this.Page, this);
                     }
-                    this.periodo.Value = actualizar.periodo;
+                    String[] periodoArr = actualizar.periodo.Split(' ');
+                    if (periodoArr[0].Equals("AGO-DIC"))
+                    {
+                        periodo1.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        periodo1.SelectedIndex = 1;
+                    }
+                    periodoAnio.Value = periodoArr[1];
+                    // this.periodo.Value = actualizar.periodo;
+
                     this.numResidentes.Value = actualizar.numeroResidentes + "";
                     this.nombreEmpresa.Value = actualizar.nombreEmpresa;
                     if (actualizar.giro.Equals("Industrial"))
@@ -163,76 +178,22 @@ namespace Solicitud_de_residencias.Vistas
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
 
 
         }
-        public void llenarDatos()
-
-        {
-            Alumno al = new Alumno();
-            AlumnoDAO dao = new AlumnoDAO();
-            al = dao.getAlumnoByUsuario(usuario);
-            a = new Alumno();
-            a = al;
-            nombreResidente = a.nombre + " " + a.apellidoPaterno + " " + a.apellidoMaterno;
-            noControlR = a.noControl;
-            carreraStr = a.carrera;
-            domicilioStr = a.domicilio;
-            emailStr = a.email;
-            ciudad = a.ciudad;
-            seguro = a.servicioSalud;
-            nSeguro = a.numeroServicioSalud;
-            telefonoStr = a.telefono;
-
-            this.nombreAlumno.Value = nombreResidente;
-            this.noControl.Value = noControlR;
-            this.carrera.Value = carreraStr;
-            this.domicilioAlu.Value = domicilioStr;
-            this.email.Value = emailStr;
-            this.ciudadAlu.Value = ciudad;
-            this.noSeguro.Value = nSeguro;
-            this.teleAlu.Value = telefonoStr;
-
-            if (a.servicioSalud.Equals("IMSS"))
-            {
-                this.rbImss.Checked = true;
-            }
-            if (a.servicioSalud.Equals("ISSSTE"))
-            {
-                this.rbIssste.Checked = true;
-            }
-            if (a.servicioSalud.Equals("Otros"))
-            {
-                this.rbOtrosS.Checked = true;
-            }
-
-        }
-
         private void PDF()
         {    
-            Thread.Sleep(5000);
-            PdfDocument doc = new PdfDocument();
-            PdfPageSettings setting = new PdfPageSettings();
-            setting.Size = new System.Drawing.SizeF(1000, 1000);
-            setting.Margins = new Spire.Pdf.Graphics.PdfMargins(20);
-            PdfHtmlLayoutFormat htmlLayoutFormat = new PdfHtmlLayoutFormat();
-            htmlLayoutFormat.IsWaiting = true;
-            String url = "http://localhost:63324/Vistas/FrmExportarSolicitud.aspx";
-            Thread thread = new Thread(() =>
-            {
-                doc.LoadFromHTML(url, false, false, false, setting, htmlLayoutFormat);
-            });
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-            thread.Join();
-            //Save pdf file.         
-            doc.SaveToFile("Solicitud.pdf");
-            doc.Close();
-            System.Diagnostics.Process.Start("Solicitud.pdf");         
+         
+            var Renderer = new IronPdf.HtmlToPdf();
+            var PDF = Renderer.RenderUrlAsPdf("http://localhost:63324/Vistas/FrmExportarSolicitud.aspx");
+            PDF.SaveAs("solicitud.pdf");
+            // This neat trick opens our PDF file so we can see the result
+            System.Diagnostics.Process.Start("solicitud.pdf");
+          
         }
 
     }

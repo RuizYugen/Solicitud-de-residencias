@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BackEnd.DAOS;
 using BackEnd.Modelos;
+using IronPdf;
 
 namespace Solicitud_de_residencias.Vistas
 {
@@ -299,7 +300,7 @@ namespace Solicitud_de_residencias.Vistas
 
             //  MsgBox(ds.fecha.Year.ToString(), this.Page, this);
             //  ds.giro = giro;
-            btnExportar.Visible = true;
+          
 
         }
         public Alumno obtenerAlumno()
@@ -391,6 +392,20 @@ namespace Solicitud_de_residencias.Vistas
                 guardarSolicitud();
                 actualizarAlumno();
                 MsgBox("Solicitud Guardada con éxito.", this.Page, this);
+                Response.Write("<script> window.open('" + "http://localhost:63324/Vistas/FrmExportarSolicitud.aspx" + "','_blank'); </script>");
+                var Renderer = new IronPdf.HtmlToPdf();
+                Renderer.PrintOptions.CreatePdfFormsFromHtml = false;
+                Renderer.PrintOptions.MarginTop = 0;  //millimeters
+                Renderer.PrintOptions.MarginBottom = 0;
+                Renderer.PrintOptions.MarginLeft = 0;
+                Renderer.PrintOptions.MarginRight = 0;
+                var PDF = Renderer.RenderUrlAsPdf("http://localhost:63324/Vistas/FrmExportarSolicitud.aspx");
+
+
+                PDF.SaveAs("solicitud.pdf");
+                // This neat trick opens our PDF file so we can see the result
+                System.Diagnostics.Process.Start("solicitud.pdf");
+
             }
             catch (Exception ex){
                 MsgBox("Verifique los datos ingresados.", this.Page, this);
@@ -427,9 +442,6 @@ namespace Solicitud_de_residencias.Vistas
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
         }
 
-        protected void btnExportar_Click(object sender, EventArgs e)
-        {
-            Response.Write("<script> window.open('" + "http://localhost:63324/Vistas/FrmExportarSolicitud.aspx" + "','_blank'); </script>");
-        }
+      
     }
 }
