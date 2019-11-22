@@ -26,6 +26,7 @@ namespace Solicitud_de_residencias.Vistas
                     Alumno al = dao.getAlumnoByUsuario(Session["Usuario"].ToString());
                     if ( al!= null)
                     {
+                        btnSolicitud.Enabled = true;
                         flag = false;
                         if (txtNoControl.Text=="")
                         {
@@ -56,6 +57,7 @@ namespace Solicitud_de_residencias.Vistas
                         }
                     }else
                     {
+                        btnSolicitud.Enabled = false;
                         flag = true;
                         txtCarrera.Items.Add("Ing. En Sistemas Computacionales");
                         txtCarrera.Items.Add("Ing. Electrónica");

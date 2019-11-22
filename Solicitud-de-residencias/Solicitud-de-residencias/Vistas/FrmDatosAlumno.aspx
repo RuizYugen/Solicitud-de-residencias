@@ -38,7 +38,7 @@
         <br />
         <asp:Label ID="Label6" runat="server" Text="Email"></asp:Label>
         <br />
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtEmail" type="email" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="Label7" runat="server" Text="Telefono"></asp:Label>
         <br />
@@ -71,7 +71,7 @@
         <asp:Button ID="btnSolicitud" runat="server" Text="Solicitud" OnClick="btnSolicitud_Click" />
         <br />
         <br />
-        <asp:Button ID="btnImprimir" runat="server" Text="Imprimir Solicitud" OnClick="btnImprimir_Click" />
+        <!--<asp:Button ID="btnImprimir" runat="server" Text="Imprimir Solicitud" OnClick="btnImprimir_Click" />-->
     </div>
         </div>
         </div>

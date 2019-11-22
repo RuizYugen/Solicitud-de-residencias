@@ -11,6 +11,7 @@ namespace Solicitud_de_residencias
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            
         }
     }
 }
