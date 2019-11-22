@@ -57,73 +57,91 @@ namespace Solicitud_de_residencias.Vistas
                     }else
                     {
                         flag = true;
+                        txtCarrera.Items.Add("Ing. En Sistemas Computacionales");
+                        txtCarrera.Items.Add("Ing. Electrónica");
+                        txtCarrera.Items.Add("Ing. Informática");
+                        txtCarrera.Items.Add("Ing. En Gestión Empresarial");
+                        txtCarrera.Items.Add("Ing. Industrial");
+                        txtCarrera.Items.Add("Ing. En Sistemas Automotrices");
+                        txtCarrera.Items.Add("Ing. Ambiental");
+                        txtServicioSalud.Items.Add("IMSS");
+                        txtServicioSalud.Items.Add("ISSSTE");
+                        txtServicioSalud.Items.Add("OTRO");
                     }
 
                 }
                 else
                 {
-                  //  Response.Redirect("ControlDeAcceso.aspx");
+                  Response.Redirect("ControlDeAcceso.aspx");
                 }
             }
             else
             {
-               // Response.Redirect("ControlDeAcceso.aspx");
+               Response.Redirect("ControlDeAcceso.aspx");
             }
         }
       
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (flag)
+            if (txtNoControl.Text.Length == 9 && txtTelefono.Text.Length == 10)
             {
-                Alumno alumno = new Alumno();
-                alumno.usuario = Session["Usuario"].ToString();
-                alumno.noControl = txtNoControl.Text;
-                alumno.nombre = txtNombre.Text;
-                alumno.apellidoPaterno = txtApellidoPaterno.Text;
-                alumno.apellidoMaterno = txtApellidoMaterno.Text;
-                alumno.carrera = txtCarrera.Text;
-                alumno.email = txtEmail.Text;
-                alumno.telefono = txtTelefono.Text;
-                alumno.domicilio = txtDomicilio.Text;
-                alumno.ciudad = txtCiudad.Text;
-                alumno.servicioSalud = txtServicioSalud.Text;
-                alumno.numeroServicioSalud = txtNoServicioSalud.Text;
-                alumno.asesorInterno = txtAsesorInterno.Text;
-                AlumnoDAO dao = new AlumnoDAO();
-                if (dao.insert(alumno))
+                if (flag)
                 {
-                    Response.Write("<script>alert('Se guardo correctamente');</script>");
+                    Alumno alumno = new Alumno();
+                    alumno.usuario = Session["Usuario"].ToString();
+                    alumno.noControl = txtNoControl.Text;
+                    alumno.nombre = txtNombre.Text;
+                    alumno.apellidoPaterno = txtApellidoPaterno.Text;
+                    alumno.apellidoMaterno = txtApellidoMaterno.Text;
+                    alumno.carrera = txtCarrera.Text;
+                    alumno.email = txtEmail.Text;
+                    alumno.telefono = txtTelefono.Text;
+                    alumno.domicilio = txtDomicilio.Text;
+                    alumno.ciudad = txtCiudad.Text;
+                    alumno.servicioSalud = txtServicioSalud.Text;
+                    alumno.numeroServicioSalud = txtNoServicioSalud.Text;
+                    alumno.asesorInterno = txtAsesorInterno.Text;
+                    AlumnoDAO dao = new AlumnoDAO();
+                    if (dao.insert(alumno))
+                    {
+                        Response.Write("<script>alert('Se guardo correctamente');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Se no se guardo correctamente');</script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script>alert('Se no se guardo correctamente');</script>");
+                    Alumno alumno = new Alumno();
+                    alumno.usuario = Session["Usuario"].ToString();
+                    alumno.noControl = txtNoControl.Text;
+                    alumno.nombre = txtNombre.Text;
+                    alumno.apellidoPaterno = txtApellidoPaterno.Text;
+                    alumno.apellidoMaterno = txtApellidoMaterno.Text;
+                    alumno.carrera = txtCarrera.Text;
+                    alumno.email = txtEmail.Text;
+                    alumno.telefono = txtTelefono.Text;
+                    alumno.domicilio = txtDomicilio.Text;
+                    alumno.ciudad = txtCiudad.Text;
+                    alumno.servicioSalud = txtServicioSalud.Text;
+                    alumno.numeroServicioSalud = txtNoServicioSalud.Text;
+                    alumno.asesorInterno = txtAsesorInterno.Text;
+                    AlumnoDAO dao = new AlumnoDAO();
+                    if (dao.update(alumno))
+                    {
+                        Response.Write("<script>alert('Se guardo correctamente');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Se no se guardo correctamente');</script>");
+                    }
                 }
             }else
             {
-                Alumno alumno = new Alumno();
-                alumno.usuario = Session["Usuario"].ToString();
-                alumno.noControl = txtNoControl.Text;
-                alumno.nombre = txtNombre.Text;
-                alumno.apellidoPaterno = txtApellidoPaterno.Text;
-                alumno.apellidoMaterno = txtApellidoMaterno.Text;
-                alumno.carrera = txtCarrera.Text;
-                alumno.email = txtEmail.Text;
-                alumno.telefono = txtTelefono.Text;
-                alumno.domicilio = txtDomicilio.Text;
-                alumno.ciudad = txtCiudad.Text;
-                alumno.servicioSalud = txtServicioSalud.Text;
-                alumno.numeroServicioSalud = txtNoServicioSalud.Text;
-                alumno.asesorInterno = txtAsesorInterno.Text;
-                AlumnoDAO dao = new AlumnoDAO();
-                if (dao.update(alumno))
-                {
-                    Response.Write("<script>alert('Se guardo correctamente');</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('Se no se guardo correctamente');</script>");
-                }
+                Response.Write("<script>alert('Ingrese correctamente los datos');</script>");
             }
+            
 
         }
 

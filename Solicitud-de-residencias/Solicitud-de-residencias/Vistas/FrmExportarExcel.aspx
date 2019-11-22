@@ -22,12 +22,13 @@
                 <asp:BoundField DataField="Plan" HeaderText="Plan" SortExpression="Plan" />
                 <asp:BoundField DataField="Cons" HeaderText="Cons" SortExpression="Cons" />
                 <asp:BoundField DataField="NoControl" HeaderText="NoControl" SortExpression="NoControl" />
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-                <asp:BoundField DataField="AsesorInterno" HeaderText="AsesorInterno" SortExpression="AsesorInterno" />
-                <asp:BoundField DataField="Asesorexterno" HeaderText="AsesorExterno" SortExpression="Asesorexterno" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />  
+                <asp:BoundField DataField="AsesorInterno" HeaderText="Asesor Interno" SortExpression="AsesorInterno" />
+                <asp:BoundField DataField="Proyecto" HeaderText="Proyecto" SortExpression="Proyecto" />
+                <asp:BoundField DataField="Asesorexterno" HeaderText="Asesor Externo" SortExpression="Asesorexterno" />
                 <asp:BoundField DataField="Empresa" HeaderText="Empresa" SortExpression="Empresa" />
-                <asp:BoundField DataField="TelefonoEmpresa" HeaderText="TelefonoEmpresa" SortExpression="TelefonoEmpresa" />
-                <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />               
+                <asp:BoundField DataField="TelefonoEmpresa" HeaderText="Telefono Empresa" SortExpression="TelefonoEmpresa" />
+                <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />                                             
             </Columns>
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="getAll" TypeName="BackEnd.DAOS.ExportarExcelDao"></asp:ObjectDataSource>

@@ -17,7 +17,7 @@ namespace BackEnd.DAOS
             List<Solicitudes> lista = new List<Solicitudes>();
             Conexion con = new Conexion();
 
-            DataSet datos = con.LLenaComboGrid("SELECT detallessolicitud.idSolicitud,alumno.noControl, alumno.nombre, detallessolicitud.estado  FROM alumno INNER JOIN detallessolicitud where alumno.noControl = detallessolicitud.noControl" + ";");
+            DataSet datos = con.LLenaComboGrid("SELECT detallessolicitud.idSolicitud,alumno.noControl, concat(alumno.apellidoPaterno,' ',alumno.apellidomaterno,' ',alumno.nombre ) as nombre, detallessolicitud.estado  FROM alumno INNER JOIN detallessolicitud where alumno.noControl = detallessolicitud.noControl" + ";");
             DataTable dt = datos.Tables[0];
             Solicitudes e;
             foreach (DataRow r in dt.Rows)

@@ -12,7 +12,22 @@ namespace Solicitud_de_residencias.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                        
+            if (Session["Rol"] != null)
+            {
+                string cadena = Session["Rol"] + "";
+                if (cadena.ToLower() == "coordinador")
+                {
+
+                }
+                else
+                {
+                    Response.Redirect("ControlDeAcceso.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("ControlDeAcceso.aspx");
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,6 +83,11 @@ namespace Solicitud_de_residencias.Vistas
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
             Response.Redirect("FrmListaSolicitudes.aspx");
+        }
+
+        protected void Unnamed3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmExportarExcel.aspx");
         }
     }
 }

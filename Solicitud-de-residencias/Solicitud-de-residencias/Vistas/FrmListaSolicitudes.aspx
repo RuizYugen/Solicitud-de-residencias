@@ -16,16 +16,27 @@
     <div style="display:inline-block;">
 
     <asp:Label Text="Lista de Solicitudes" runat="server" class="et"/>
-    <asp:GridView ID="GridView1" runat="server" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" CssClass="Grid" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" >
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource1" ForeColor="#333333" GridLines="None" CssClass="Grid">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="idSolicitud" HeaderText="Identificador" SortExpression="idSolicitud" />
-                <asp:BoundField DataField="noControl" HeaderText="Numero Control" SortExpression="noControl" />
-                <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
-                <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
-                <asp:CommandField ShowEditButton="True"/>
+                <asp:CommandField ShowEditButton="True" />
+                <asp:BoundField DataField="idSolicitud" HeaderText="idSolicitud" SortExpression="idSolicitud" />
+                <asp:BoundField DataField="noControl" HeaderText="noControl" SortExpression="noControl" />
+                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
+                <asp:CheckBoxField DataField="estado" HeaderText="estado" SortExpression="estado" />
             </Columns>
-    </asp:GridView>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="getAll" TypeName="BackEnd.DAOS.SolicitudesDAO" DataObjectTypeName="BackEnd.Modelos.Solicitudes"  UpdateMethod="actualizar"></asp:ObjectDataSource>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="BackEnd.Modelos.Solicitudes" SelectMethod="getAll" TypeName="BackEnd.DAOS.SolicitudesDAO" UpdateMethod="actualizar"></asp:ObjectDataSource>
     </div>
     </div>
     </div>

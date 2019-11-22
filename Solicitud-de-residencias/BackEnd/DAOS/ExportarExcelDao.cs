@@ -17,7 +17,7 @@ namespace BackEnd.DAOS
             List<ExportarExcel> lista = new List<ExportarExcel>();
             Conexion con = new Conexion();
 
-            DataSet datos = con.LLenaComboGrid("select d.idSolicitud,'plan' as plan,'cons' as cons, a.noControl,concat(a.apellidoPaterno,' ',a.apellidomaterno,' ',a.nombre ) as nombre,'efren' as asesorInterno, d.nombreasesorexterno, d.nombreempresa, d.telefonoempresa, a.telefono from detallessolicitud d join alumno a on a.nocontrol = d.nocontrol; ");
+            DataSet datos = con.LLenaComboGrid("select d.idSolicitud,'plan' as plan,'cons' as cons, a.noControl,concat(a.apellidoPaterno,' ',a.apellidomaterno,' ',a.nombre ) as nombre,a.asesorinterno, d.nombreasesorexterno, d.nombreempresa, d.telefonoempresa, a.telefono, d.nombreproyecto from detallessolicitud d join alumno a on a.nocontrol = d.nocontrol where d.estado=1; ");
             DataTable dt = datos.Tables[0];
             ExportarExcel e;
             foreach (DataRow r in dt.Rows)
@@ -34,6 +34,7 @@ namespace BackEnd.DAOS
                 e.Empresa = (string)r.ItemArray[7];
                 e.TelefonoEmpresa = (string)r.ItemArray[8];
                 e.Telefono = (string)r.ItemArray[9];
+                e.Proyecto = (string)r.ItemArray[10];
                 lista.Add(e);
             }
             return lista;

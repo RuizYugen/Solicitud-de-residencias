@@ -15,6 +15,7 @@ namespace BackEnd.Modelos
         private string nombre;
         private string asesorInterno;
         private string asesorexterno;
+        private string proyecto;
         private string empresa;
         private string telefonoEmpresa;
         private string telefono;
@@ -146,6 +147,19 @@ namespace BackEnd.Modelos
             set
             {
                 nombre = value;
+            }
+        }
+
+        public string Proyecto
+        {
+            get
+            {
+                return proyecto;
+            }
+
+            set
+            {
+                proyecto = value;
             }
         }
     }
