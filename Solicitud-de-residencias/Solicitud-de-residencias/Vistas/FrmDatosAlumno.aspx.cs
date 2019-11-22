@@ -62,12 +62,12 @@ namespace Solicitud_de_residencias.Vistas
                 }
                 else
                 {
-                    Response.Redirect("ControlDeAcceso.aspx");
+                  //  Response.Redirect("ControlDeAcceso.aspx");
                 }
             }
             else
             {
-                Response.Redirect("ControlDeAcceso.aspx");
+               // Response.Redirect("ControlDeAcceso.aspx");
             }
         }
       

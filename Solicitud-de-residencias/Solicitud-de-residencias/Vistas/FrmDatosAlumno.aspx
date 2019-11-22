@@ -8,72 +8,136 @@
     <title></title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link href="CSS/cssCatalogoUsuarios.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color:#F8F9FA" >
     <form id="form1" runat="server">
-    <div class="contenedor">
-    <div style="text-align:center;"class="form-group">
-    <div style="display:inline-block;">
-        <h1>Datos del Alumno</h1>
-        <br />
-        <asp:Label ID="Label1" runat="server" Text="No. Control"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtNoControl" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label3" runat="server" Text="Apellido Paterno"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtApellidoPaterno" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label4" runat="server" Text="Apellido Materno"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtApellidoMaterno" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label5" runat="server" Text="Carrera"></asp:Label>
-        <br />
-        <asp:DropDownList ID="txtCarrera" runat="server"></asp:DropDownList>
-        <br />
-        <asp:Label ID="Label6" runat="server" Text="Email"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label7" runat="server" Text="Telefono"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtTelefono" runat="server" ValidateRequestMode="Inherit"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label8" runat="server" Text="Domicilio"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtDomicilio" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label9" runat="server" Text="Ciudad"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtCiudad" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label10" runat="server" Text="Servicio de salud"></asp:Label>
-        <br />
-        <asp:DropDownList ID="txtServicioSalud" runat="server"></asp:DropDownList>       
-        <br />
-        <asp:Label ID="Label11" runat="server" Text="No. Servicio de salud"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtNoServicioSalud" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label12" runat="server" Text="Asesor interno"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtAsesorInterno" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
-        <br />
-        <br />
-        <asp:Button ID="btnSolicitud" runat="server" Text="Solicitud" OnClick="btnSolicitud_Click" />
-        <br />
-        <br />
-        <asp:Button ID="btnImprimir" runat="server" Text="Imprimir Solicitud" OnClick="btnImprimir_Click" />
-    </div>
-        </div>
+        <div class="container">
+             <header>
+                <div class="col-12">
+                <nav class="navbar fixed-top navbar-dark bg-primary">
+                    <a class="navbar-brand" href="#">
+                       <h4>SOLICITUD DE RESIDENCIAS</h4>
+                    </a>
+                </nav>               
+            </div>
+            </header>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <main style="background-color: white" class="col-12  shadow p-3 mb-5 bg-white rounded">
+                 <form class="needs-validation" novalidate="">
+                     <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="txtNoControl">No. Control</label>
+                                <asp:TextBox class="form-control" ID="txtNoControl" runat="server" required="*"></asp:TextBox>
+                                <div class="invalid-feedback">Valid last name is required.</div>
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <label for="txtNombre">Nombre</label>
+                                <asp:TextBox ID="txtNombre" runat="server" class="form-control" required="*"></asp:TextBox>
+                                <div class="invalid-feedback">Valid last name is required.</div>
+                            </div>
+                        </div>
+
+                         
+                       <div class="row">
+                            <div class="col-md-4">
+                                <label for="TextBox1">Apellido Paterno</label>
+                                <asp:TextBox ID="txtApellidoPaterno" runat="server" class="form-control" required="*"></asp:TextBox>
+                              
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="ApeM">Apellido Materno</label>
+                                <asp:TextBox ID="txtApellidoMaterno" runat="server" class="form-control" required="*"></asp:TextBox>
+                               
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="Carrera">Carrera</label>
+                                <asp:DropDownList ID="txtCarrera" runat="server" class="custom-select d-block w-100" required="*"></asp:DropDownList>
+
+                            </div>
+                         </div>
+                         
+
+                         <div class="row">
+                             <div class="col-md-8 mb-3">
+                                    <label for="txtEmail">Email</label>
+                                     <asp:TextBox ID="txtEmail" runat="server" type="email"  class="form-control" required="*"></asp:TextBox>
+                              </div>
+
+                              <div class="col-md-4 mb-3">
+                                     <label for="txtTelefono">Telefono</label>
+                                         <asp:TextBox ID="txtTelefono" runat="server" ValidateRequestMode="Inherit" class="form-control" required="*" type="text" pattern="^[9|8|7|6]\d{8}$"></asp:TextBox>
+                              </div>
+                         </div>
+
+
+
+                      <div class="row">
+                             <div class="col-md-5 mb-2">
+                                    <label for="txtDomicilio" >Domicilio</label>
+                                     <asp:TextBox ID="txtDomicilio" runat="server" class="form-control" required="*" ></asp:TextBox>    
+                              </div>
+
+                              <div class="col-md-4 mb-2">
+                                     <label for="txtCiudad">Ciudad</label>
+                                        <asp:TextBox ID="txtCiudad" runat="server" class="form-control" required="*"></asp:TextBox>
+                              </div>
+
+                           <div class="col-md-3 mb-2">
+                                     <label for="txtServicioSalud">Servicio de salud</label>
+                                          <asp:DropDownList ID="txtServicioSalud" runat="server" class="custom-select d-block w-100" required="*"></asp:DropDownList>                                      
+                              </div>
+
+                         </div>
+
+
+                       <div class="row">
+                             <div class="col-md-8 mb-3">
+                                    <label for="txtNoServicioSalud">Numero de servicio de salud</label>
+                                     <asp:TextBox ID="txtNoServicioSalud" runat="server" class="form-control" required="*"  type="number" maxlength="15"></asp:TextBox>
+                                   
+                              </div>
+
+                              <div class="col-md-4 mb-3">
+                                     <label for="txtAsesorInterno">Asesor Interno</label>
+                                        <asp:TextBox ID="txtAsesorInterno" runat="server" class="form-control" required="*"></asp:TextBox>
+                                         <div class="invalid-feedback">Campo requerido.</div>
+                              </div>
+                         </div>
+
+                     <br />
+                     <br />
+
+                     <div class="row">
+                         <div class="col-4">
+                            <asp:Button  class="btn btn-lg btn-primary btn-block"  ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                         </div>
+                         <div class="col-4">
+                            <asp:Button class="btn btn-lg btn-primary btn-block"  ID="btnSolicitud" runat="server" Text="Solicitud" OnClick="btnSolicitud_Click" />
+
+                         </div>
+                         <div class="col-4">
+                             <asp:Button class="btn btn-lg btn-primary btn-block"  ID="btnImprimir" runat="server" Text="Imprimir Solicitud" OnClick="btnImprimir_Click" />
+                         </div>
+                     </div>
+                     <br />
+                     <br />
+                 </form>
+           </main>
+
+            <footer>
+
+            </footer>          
+
         </div>
     </form>
 </body>
