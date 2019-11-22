@@ -43,7 +43,7 @@ namespace Solicitud_de_residencias.Vistas
                 llenarDatos();
                 cargarSolicitud();
                
-                ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
+                //ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
             }           
         }
 
