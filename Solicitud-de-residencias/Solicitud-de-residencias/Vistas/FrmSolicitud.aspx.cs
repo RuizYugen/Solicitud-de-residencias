@@ -60,6 +60,7 @@ namespace Solicitud_de_residencias.Vistas
         {
             usuario = Session["Usuario"].ToString();
             FrmExportarSolicitud.usuario = Session["Usuario"].ToString();
+            periodo1.Items.Clear();
             periodo1.Items.Add("AGO-DIC");
             periodo1.Items.Add("ENE-JUN");
             if (!Page.IsPostBack)
