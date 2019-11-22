@@ -25,7 +25,7 @@
         <div>
             <label class="left">Lugar: Uriangato Gto.</label>
             <!-- <label id="fecha">Fecha: <input type="date"  id="fechaCale" runat="server"/></label> -->
-            <label id="fecha"> Fecha*: <asp:TextBox ID="fechaCale2" runat="server" Text='<%# Bind("DateofBirth") %>' TextMode="Date"></asp:TextBox> </label>
+            <label id="fecha"> Fecha: <asp:TextBox ID="fechaCale2" runat="server" Text='<%# Bind("DateofBirth") %>' TextMode="Date"></asp:TextBox> </label>
         </div>
       
         <br />
@@ -51,14 +51,14 @@
         <br />
         <br />
         <div class="form-group, etiquetaText">
-            <label for="txtnombreProyecto" class="texto25">NOMBRE DEL PROYECTO*: </label>
+            <label for="txtnombreProyecto" class="texto25">NOMBRE DEL PROYECTO: </label>
             <input class="form-control"  id="txtnombreProyecto" type="text" runat="server" required="required"/>
         </div>
         <br />
         <br />
        
         <div>
-            <label class="texto15">OPCION ELEGIDA*:   </label>
+            <label class="texto15">OPCION ELEGIDA:   </label>
            <label  class="radio-inline"><input type="radio" name="opcionProyect" id="rbBanco2" value="Banco de proyectos"  runat="server"/>Banco de proyectos</label>
        
        
@@ -71,13 +71,13 @@
         <br />
         <div class="periodoNum">
         <div class="form-group, etiquetaText, periodo">
-           <label for="periodo1" class="texto75">PERIODO PROYECTADO*:</label>  
+           <label for="periodo1" class="texto75">PERIODO PROYECTADO:</label>  
                 <asp:DropDownList class="form-control" ID="periodo1" runat="server"></asp:DropDownList>
                 <input class="form-control"  id="periodoAnio" type="text" placeholder="2019" runat="server" required="required" />
                  
          </div> 
                <div class="form-group, etiquetaText, numR">
-                    <label for="periodo" class="texto75">Número de residentes*:</label>  
+                    <label for="periodo" class="texto75">Número de residentes:</label>  
                     <input class="form-control"  id="numResidentes" type="number" runat="server" required="required" />
                </div> 
         </div>
@@ -88,7 +88,7 @@
         <br />
         
               <div class="form-group, etiquetaText">
-            <label for="nombreProyecto" class="texto10">Nombre*: </label>
+            <label for="nombreProyecto" class="texto10">Nombre: </label>
             <input class="form-control"  id="nombreEmpresa" type="text" runat="server" required="required" />
         </div>
         <br />
@@ -97,7 +97,7 @@
         <div class="divRFC">
                <div class="divGiro">
             <div>
-            <label class="texto15">Giro, Ramo*:   </label>
+            <label class="texto15">Giro, Ramo:   </label>
              
                  <label  class="radio-inline"><input type="radio" name="giro" id="rbIndus" value="Industrial" runat="server" />Industrial</label>
        
@@ -111,7 +111,7 @@
         </div>
         <br />
         <div>
-             <label class="texto15">Sector*:   </label>
+             <label class="texto15">Sector:   </label>
               
             <label  class="radio-inline"><input type="radio" name="sector" id="rbPublico" value="Publico"  runat="server"/>Público</label>
        
@@ -124,26 +124,26 @@
         </div>
               
         <div class="divNumRFC">
-             <label>R.F.C.* </label><input class="form-control" type="text" id="txtRfc" maxlength="13" runat="server" required="required" />
+             <label>R.F.C. </label><input class="form-control" type="text" id="txtRfc" maxlength="13" runat="server" required="required" />
         </div>
         </div>
              <div class="form-group, etiquetaText">
-            <label for="nombreProyecto" class="texto10">Domicilio*: </label>
+            <label for="nombreProyecto" class="texto10">Domicilio: </label>
             <input class="form-control"  id="domicilioEmp" type="text" runat="server" required="required" />
         </div>
             <br />
             <br />
         <div class="colonia">
             <div class="form-group, etiquetaText">
-                <label for="colonia" class="texto30">Colonia*: </label>
+                <label for="colonia" class="texto30">Colonia: </label>
                 <input class="form-control"  id="colonia" type="text" runat="server" required="required" />
             </div>
             <div class="form-group, etiquetaText">
-                <label for="cp" class="texto">C.P*: </label>
+                <label for="cp" class="texto">C.P: </label>
                 <input class="form-control"  id="cp" maxlength="5" type="text" runat="server" required="required" />
             </div>
             <div class="form-group, etiquetaText">
-                <label for="fax" class="texto">Fax*: </label>
+                <label for="fax" class="texto">Fax: </label>
                 <input class="form-control"  id="fax" maxlength="10" type="text" runat="server" required="required"/>
             </div>
         </div>
@@ -151,12 +151,12 @@
         <div class="ciudadTel">
             
                 <div class="form-group, etiquetaText">
-                    <label for="ciudadEmp" class="texto20">Ciudad*: </label>
+                    <label for="ciudadEmp" class="texto20">Ciudad: </label>
                     <input class="form-control"  id="ciudadEmp" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="telefonoEmp" class="texto25">Teléfono (no celular)*: </label>
+                    <label for="telefonoEmp" class="texto25">Teléfono (no celular): </label>
                     <input class="form-control"  id="telefonoEmp" maxlength="10" type="text" runat="server" required="required" />
                 </div>
              
@@ -164,50 +164,50 @@
         </div>
         <br />
          <div class="form-group, etiquetaText">
-                    <label for="mision" class="texto10">Mision de la empresa*: </label>
+                    <label for="mision" class="texto10">Mision de la empresa: </label>
                     <textarea class="form-control" rows="5"  id="mision"  runat="server" required="required"></textarea>
                 </div>
         <br />
         <br />
         <div class="titular">
              <div class="form-group, etiquetaText">
-                    <label for="titular" class="texto25">Nombre del Titular de la empresa*: </label>
+                    <label for="titular" class="texto25">Nombre del Titular de la empresa: </label>
                     <input class="form-control"  id="titular" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="puestoTit" class="texto15">Puesto*: </label>
+                    <label for="puestoTit" class="texto15">Puesto: </label>
                     <input class="form-control"  id="puestoTit" type="text" runat="server" required="required"/>
                 </div>
         </div>
         <br />
         <div class="titular">
              <div class="form-group, etiquetaText">
-                    <label for="titular" class="texto25">Nombre del Asesor Externo*: </label>
+                    <label for="titular" class="texto25">Nombre del Asesor Externo: </label>
                     <input class="form-control"  id="asesor" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="puestoTit" class="texto15">Puesto*: </label>
+                    <label for="puestoTit" class="texto15">Puesto: </label>
                     <input class="form-control"  id="puestoAse" type="text" runat="server" required="required"/>
                 </div>
         </div>
         <br />
         <div class="titular">
              <div class="form-group, etiquetaText">
-                    <label for="acuerdo" class="texto75">Nombre de la persona que firmará el acuerdo de trabajo. Alumno-Escuela-Empresa*: </label>
+                    <label for="acuerdo" class="texto75">Nombre de la persona que firmará el acuerdo de trabajo. Alumno-Escuela-Empresa: </label>
                     <input class="form-control"  id="acuerdo" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="puestoTit" class="texto15">Puesto*: </label>
+                    <label for="puestoTit" class="texto15">Puesto: </label>
                     <input class="form-control"  id="puestoAcue" type="text" runat="server" required="required"/>
                 </div>
         </div>
         <br />
         <label>Datos del residente:</label>
          <div class="form-group, etiquetaText">
-            <label for="nombreAlumno" class="texto10">Nombre*: </label>
+            <label for="nombreAlumno" class="texto10">Nombre: </label>
             <input class="form-control"  id="nombreAlumno" type="text" runat="server" required="required"/>
         <br />
              <br />
@@ -216,12 +216,12 @@
         <div class="ciudadTel">
             
                 <div class="form-group, etiquetaText">
-                    <label for="carrera" class="texto20">Carrera*: </label>
+                    <label for="carrera" class="texto20">Carrera: </label>
                     <input class="form-control"  id="carrera" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="noControl" class="texto25">No. de control*: </label>
+                    <label for="noControl" class="texto25">No. de control: </label>
                     <input class="form-control"  id="noControl" maxlength="9" type="text" runat="server" required="required"/>
                 </div>
             
@@ -229,7 +229,7 @@
      
         <br />
         <div class="form-group, etiquetaText">
-            <label for="nombreProyecto" class="texto10">Domicilio*: </label>
+            <label for="nombreProyecto" class="texto10">Domicilio: </label>
             <input class="form-control"  id="domicilioAlu" type="text" runat="server" required="required"/>
         </div>
         <br />
@@ -237,12 +237,12 @@
          <div class="emailSeguro">
              <div class="divEmail">
                  <div class="form-group, etiquetaText">
-                    <label for="email" class="texto30">E-mail*: </label>
+                    <label for="email" class="texto30">E-mail: </label>
                     <input class="form-control"  id="email" type="email" runat="server" required="required"/>
                   </div>
              </div>
              <div class="seguroNum">
-                 <label class="texto25">Para Seguridad Social acudir*:   </label>
+                 <label class="texto25">Para Seguridad Social acudir:   </label>
             <label  class="radio-inline"><input type="radio" name="seguroOp" id="rbImss" value="IMSS" runat="server"/>IMSS</label>
        
         
@@ -251,7 +251,7 @@
             <label class="radio-inline"><input type="radio" name="seguroOp" id="rbOtrosS" value="OTRO" runat="server"/>Otros</label>
                  <br />
                   <div class="form-group, etiquetaText">
-                    <label for="email" class="texto25">No.*: </label>
+                    <label for="email" class="texto25">No.: </label>
                     <input class="form-control"  id="noSeguro" type="text" runat="server" required="required"/>
                   </div>
              </div>
@@ -261,12 +261,12 @@
                 <div class="ciudadTel">
             
                 <div class="form-group, etiquetaText">
-                    <label for="ciudadEmp" class="texto20">Ciudad*: </label>
+                    <label for="ciudadEmp" class="texto20">Ciudad: </label>
                     <input class="form-control"  id="ciudadAlu" type="text" runat="server" required="required"/>
                 </div>
              
                 <div class="form-group, etiquetaText">
-                    <label for="telefonoEmp" class="texto25">Teléfono (no celular)*: </label>
+                    <label for="telefonoEmp" class="texto25">Teléfono (no celular): </label>
                     <input class="form-control"  id="teleAlu" maxlength="10" type="text" runat="server" required="required"/>
                 </div>
              
