@@ -35,7 +35,9 @@ namespace Solicitud_de_residencias.Vistas
         static Alumno a;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
+            periodo1.Items.Add("AGO-DIC");
+            periodo1.Items.Add("ENE-JUN");
             if (!Page.IsPostBack)
             {
                 llenarDatos();
@@ -185,16 +187,7 @@ namespace Solicitud_de_residencias.Vistas
 
 
         }
-        private void PDF()
-        {    
-         
-            var Renderer = new IronPdf.HtmlToPdf();
-            var PDF = Renderer.RenderUrlAsPdf("http://localhost:63324/Vistas/FrmExportarSolicitud.aspx");
-            PDF.SaveAs("solicitud.pdf");
-            // This neat trick opens our PDF file so we can see the result
-            System.Diagnostics.Process.Start("solicitud.pdf");
-          
+
         }
 
     }
-}
