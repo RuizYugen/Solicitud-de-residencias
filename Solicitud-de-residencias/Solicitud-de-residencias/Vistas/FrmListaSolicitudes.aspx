@@ -20,10 +20,10 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
-                <asp:BoundField DataField="idSolicitud" HeaderText="idSolicitud" SortExpression="idSolicitud" />
-                <asp:BoundField DataField="noControl" HeaderText="noControl" SortExpression="noControl" />
-                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                <asp:CheckBoxField DataField="estado" HeaderText="estado" SortExpression="estado" />
+                <asp:BoundField DataField="idSolicitud" HeaderText="ID Solicitud" SortExpression="idSolicitud" />
+                <asp:BoundField DataField="noControl" HeaderText="No. Control" SortExpression="noControl" />
+                <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
+                <asp:CheckBoxField DataField="estado" HeaderText="Estado" SortExpression="estado" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

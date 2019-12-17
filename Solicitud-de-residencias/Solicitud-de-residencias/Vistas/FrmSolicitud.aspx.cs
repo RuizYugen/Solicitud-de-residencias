@@ -442,8 +442,8 @@ namespace Solicitud_de_residencias.Vistas
             Renderer.PrintOptions.CreatePdfFormsFromHtml = false;
             Renderer.PrintOptions.MarginTop = 0;  //millimeters
             Renderer.PrintOptions.MarginBottom = 0;
-            Renderer.PrintOptions.MarginLeft = 0;
-            Renderer.PrintOptions.MarginRight = 0;
+            Renderer.PrintOptions.MarginLeft = 20;
+            Renderer.PrintOptions.MarginRight = 15;
             var PDF = Renderer.RenderUrlAsPdf("http://localhost:63324/Vistas/FrmExportarSolicitud.aspx");
             PDF.SaveAs(nombre);
             // This neat trick opens our PDF file so we can see the result
