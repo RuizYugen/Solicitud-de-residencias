@@ -1,17 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CatalogoUsuarios.aspx.cs" Inherits="Solicitud_de_residencias.Vistas.CatalogoUsuarios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CatalogoUsuarios.aspx.cs" Inherits="Solicitud_de_residencias.Vistas.CatalogoUsuarios" MasterPageFile="~/Vistas/MasterPage.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>       
     <title>Catálogo de Usuarios</title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link href="CSS/cssCatalogoUsuarios.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="contenedor">
     <div style="text-align:center;"class="form-group">
     <div style="display:inline-block;">
@@ -38,6 +35,5 @@
     </div>
     </div>
         </div>
-    </form>
-</body>
-</html>
+    
+</asp:Content>
